@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4412FE8A2A5065FB007DEA72 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FE892A5065FB007DEA72 /* ColorTheme.swift */; };
 		44B223702A50187300A52640 /* TalkaidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B2236F2A50187300A52640 /* TalkaidApp.swift */; };
 		44B223722A50187300A52640 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B223712A50187300A52640 /* ContentView.swift */; };
 		44B223742A50187400A52640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223732A50187400A52640 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4412FE892A5065FB007DEA72 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		44B2236C2A50187300A52640 /* Talkaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talkaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2236F2A50187300A52640 /* TalkaidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkaidApp.swift; sourceTree = "<group>"; };
 		44B223712A50187300A52640 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +36,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4412FE852A506436007DEA72 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4412FE862A50643D007DEA72 /* Enums */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4412FE862A50643D007DEA72 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4412FE892A5065FB007DEA72 /* ColorTheme.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		44B223632A50187300A52640 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +76,7 @@
 				44B223732A50187400A52640 /* Assets.xcassets */,
 				44B223752A50187400A52640 /* Preview Content */,
 				44B2237D2A501D7100A52640 /* Supporting Files */,
+				4412FE852A506436007DEA72 /* Utilities */,
 			);
 			path = Talkaid;
 			sourceTree = "<group>";
@@ -172,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4412FE8A2A5065FB007DEA72 /* ColorTheme.swift in Sources */,
 				44B223722A50187300A52640 /* ContentView.swift in Sources */,
 				44B223702A50187300A52640 /* TalkaidApp.swift in Sources */,
 			);

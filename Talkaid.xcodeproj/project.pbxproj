@@ -12,6 +12,7 @@
 		4412FEA22A5070BD007DEA72 /* FontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEA12A5070BD007DEA72 /* FontTheme.swift */; };
 		4412FEA72A5070F6007DEA72 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4412FEA52A5070F6007DEA72 /* SF-Pro-Display-Bold.otf */; };
 		4412FEA82A5070F6007DEA72 /* SF-Pro-Text.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4412FEA62A5070F6007DEA72 /* SF-Pro-Text.otf */; };
+		4412FEAD2A50719A007DEA72 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEAC2A50719A007DEA72 /* ChatView.swift */; };
 		44B223702A50187300A52640 /* TalkaidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B2236F2A50187300A52640 /* TalkaidApp.swift */; };
 		44B223722A50187300A52640 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B223712A50187300A52640 /* ContentView.swift */; };
 		44B223742A50187400A52640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223732A50187400A52640 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		4412FEA32A5070D1007DEA72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4412FEA52A5070F6007DEA72 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		4412FEA62A5070F6007DEA72 /* SF-Pro-Text.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text.otf"; sourceTree = "<group>"; };
+		4412FEAC2A50719A007DEA72 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		44B2236C2A50187300A52640 /* Talkaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talkaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2236F2A50187300A52640 /* TalkaidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkaidApp.swift; sourceTree = "<group>"; };
 		44B223712A50187300A52640 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,30 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4412FEA92A50718E007DEA72 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4412FEAA2A507190007DEA72 /* Chat */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4412FEAA2A507190007DEA72 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				4412FEAB2A507192007DEA72 /* View */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		4412FEAB2A507192007DEA72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4412FEAC2A50719A007DEA72 /* ChatView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		44B223632A50187300A52640 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +122,7 @@
 				44B223712A50187300A52640 /* ContentView.swift */,
 				44B2236F2A50187300A52640 /* TalkaidApp.swift */,
 				44B223732A50187400A52640 /* Assets.xcassets */,
+				4412FEA92A50718E007DEA72 /* Modules */,
 				44B223752A50187400A52640 /* Preview Content */,
 				44B2237D2A501D7100A52640 /* Supporting Files */,
 				4412FE852A506436007DEA72 /* Utilities */,
@@ -219,6 +246,7 @@
 				4412FEA22A5070BD007DEA72 /* FontTheme.swift in Sources */,
 				4412FEA02A507071007DEA72 /* ImageTheme.swift in Sources */,
 				44B223722A50187300A52640 /* ContentView.swift in Sources */,
+				4412FEAD2A50719A007DEA72 /* ChatView.swift in Sources */,
 				44B223702A50187300A52640 /* TalkaidApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

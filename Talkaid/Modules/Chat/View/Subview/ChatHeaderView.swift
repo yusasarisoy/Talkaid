@@ -13,10 +13,10 @@ struct ChatHeaderView: View {
       }
       VStack(alignment: .leading, spacing: 4) {
         Text("Good morning, Samantha")
-          .font(FontTheme.sfProDisplayBold20.font)
-          .foregroundColor(ColorTheme.pianoBlack.color)
+          .font(.custom(FontTheme.sfProDisplay, size: 20).weight(.heavy))
+          .foregroundColor(ColorTheme.accentColor.color)
         Text("How can I help you today?")
-          .font(FontTheme.sfProText15.font)
+          .font(.custom(FontTheme.sfProText, size: 15))
           .foregroundColor(ColorTheme.echoBlue.color)
       }
     }

@@ -4,7 +4,7 @@ struct ChatDateView: View {
   var body: some View {
     VStack {
       Text("Today")
-        .font(FontTheme.sfProText13.font)
+        .font(.custom(FontTheme.sfProText, size: 13))
         .foregroundColor(ColorTheme.echoBlue.color)
     }
   }

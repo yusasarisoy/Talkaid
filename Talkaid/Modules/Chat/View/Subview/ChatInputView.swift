@@ -24,7 +24,7 @@ private extension ChatInputView {
       .autocorrectionDisabled(true)
       .foregroundColor(ColorTheme.micColor.color)
       .overlay(
-        Image(systemName: "mic")
+        Image(systemName: IconTheme.mic)
           .font(.body.weight(.regular))
           .foregroundColor(ColorTheme.micColor.color)
           .opacity(inputText.isEmpty ? 1 : 0)
@@ -60,7 +60,7 @@ private extension ChatInputView {
           )
         )
         .cornerRadius(100)
-      Image(systemName: "arrow.up")
+      Image(systemName: IconTheme.arrowUp)
         .foregroundColor(.white)
         .font(.body.weight(.bold))
     }

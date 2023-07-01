@@ -1,18 +1,31 @@
 import SwiftUI
 
 struct ChatView: View {
+
+  // MARK: - Properties
+
+  @State private var inputText: String = ""
+
+  // MARK: - Body
+
   var body: some View {
     VStack(spacing: 16) {
       ChatHeaderView()
       ChatDateView()
+      ChatInputView(inputText: $inputText)
     }
     .padding(.horizontal, 16)
-    .background(ColorTheme.ghostWhite.color)
   }
 }
 
+// MARK: - Preview
+
 struct ChatView_Previews: PreviewProvider {
   static var previews: some View {
-    ChatView()
+    Group {
+      ChatView()
+      ChatView()
+        .preferredColorScheme(.dark)
+    }
   }
 }

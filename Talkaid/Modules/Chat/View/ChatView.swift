@@ -2,7 +2,11 @@ import SwiftUI
 
 struct ChatView: View {
   var body: some View {
-    Text("Hello, World!")
+    VStack(spacing: 16) {
+      ChatHeaderView()
+    }
+    .padding(.horizontal, 16)
+    .background(ColorTheme.ghostWhite.color)
   }
 }
 

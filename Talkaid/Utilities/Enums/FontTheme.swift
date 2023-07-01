@@ -5,7 +5,7 @@ enum FontTheme {
     static let sfProDisplayBold = "SF-Pro-Display-Bold"
     static let sfProText = "SF-Pro-Text"
   }
-  
+
   case sfProDisplayBold20
   case sfProText15
   case sfProText13

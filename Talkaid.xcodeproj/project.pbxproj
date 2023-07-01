@@ -14,6 +14,7 @@
 		4412FEA82A5070F6007DEA72 /* SF-Pro-Text.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4412FEA62A5070F6007DEA72 /* SF-Pro-Text.otf */; };
 		4412FEAD2A50719A007DEA72 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEAC2A50719A007DEA72 /* ChatView.swift */; };
 		4412FEB12A5071D9007DEA72 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB02A5071D9007DEA72 /* ChatHeaderView.swift */; };
+		4412FEB62A507269007DEA72 /* ChatDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB52A507269007DEA72 /* ChatDayView.swift */; };
 		44B223702A50187300A52640 /* TalkaidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B2236F2A50187300A52640 /* TalkaidApp.swift */; };
 		44B223722A50187300A52640 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B223712A50187300A52640 /* ContentView.swift */; };
 		44B223742A50187400A52640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223732A50187400A52640 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		4412FEA62A5070F6007DEA72 /* SF-Pro-Text.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text.otf"; sourceTree = "<group>"; };
 		4412FEAC2A50719A007DEA72 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		4412FEB02A5071D9007DEA72 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
+		4412FEB52A507269007DEA72 /* ChatDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDayView.swift; sourceTree = "<group>"; };
 		44B2236C2A50187300A52640 /* Talkaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talkaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2236F2A50187300A52640 /* TalkaidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkaidApp.swift; sourceTree = "<group>"; };
 		44B223712A50187300A52640 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		4412FEAF2A5071C6007DEA72 /* Subview */ = {
 			isa = PBXGroup;
 			children = (
+				4412FEB52A507269007DEA72 /* ChatDayView.swift */,
 				4412FEB02A5071D9007DEA72 /* ChatHeaderView.swift */,
 			);
 			path = Subview;
@@ -258,6 +261,7 @@
 				4412FEA02A507071007DEA72 /* ImageTheme.swift in Sources */,
 				44B223722A50187300A52640 /* ContentView.swift in Sources */,
 				4412FEAD2A50719A007DEA72 /* ChatView.swift in Sources */,
+				4412FEB62A507269007DEA72 /* ChatDayView.swift in Sources */,
 				4412FEB12A5071D9007DEA72 /* ChatHeaderView.swift in Sources */,
 				44B223702A50187300A52640 /* TalkaidApp.swift in Sources */,
 			);

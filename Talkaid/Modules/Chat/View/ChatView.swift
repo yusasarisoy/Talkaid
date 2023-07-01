@@ -4,6 +4,7 @@ struct ChatView: View {
   var body: some View {
     VStack(spacing: 16) {
       ChatHeaderView()
+      ChatDateView()
     }
     .padding(.horizontal, 16)
     .background(ColorTheme.ghostWhite.color)

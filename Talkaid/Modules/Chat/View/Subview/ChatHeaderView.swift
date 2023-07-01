@@ -6,7 +6,7 @@ struct ChatHeaderView: View {
       VStack {
         ImageTheme.chatAssistant.image
           .resizable()
-          .frame(width: 40, height: 40)
+          .frame(size: 40)
           .aspectRatio(contentMode: .fill)
           .clipped()
         Spacer()

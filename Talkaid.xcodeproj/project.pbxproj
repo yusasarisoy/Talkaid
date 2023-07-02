@@ -16,6 +16,7 @@
 		4412FEB92A5072BB007DEA72 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB82A5072BB007DEA72 /* View.swift */; };
 		448410A42A507BCA00298F7A /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448410A32A507BCA00298F7A /* ChatInputView.swift */; };
 		448410A82A5088C500298F7A /* IconTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448410A72A5088C500298F7A /* IconTheme.swift */; };
+		449025512A5191D7003C79ED /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449025502A5191D7003C79ED /* RoundedCorner.swift */; };
 		44B223702A50187300A52640 /* TalkaidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B2236F2A50187300A52640 /* TalkaidApp.swift */; };
 		44B223722A50187300A52640 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B223712A50187300A52640 /* ContentView.swift */; };
 		44B223742A50187400A52640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223732A50187400A52640 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		4412FEB82A5072BB007DEA72 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		448410A32A507BCA00298F7A /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
 		448410A72A5088C500298F7A /* IconTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTheme.swift; sourceTree = "<group>"; };
+		449025502A5191D7003C79ED /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		44B2236C2A50187300A52640 /* Talkaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talkaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2236F2A50187300A52640 /* TalkaidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkaidApp.swift; sourceTree = "<group>"; };
 		44B223712A50187300A52640 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		4412FE852A506436007DEA72 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4490254F2A5191C7003C79ED /* Structs */,
 				4412FE862A50643D007DEA72 /* Enums */,
 				4412FEB72A5072B3007DEA72 /* Extensions */,
 			);
@@ -114,6 +117,14 @@
 				4412FEB82A5072BB007DEA72 /* View.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4490254F2A5191C7003C79ED /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				449025502A5191D7003C79ED /* RoundedCorner.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 		44B223632A50187300A52640 = {
@@ -261,6 +272,7 @@
 				448410A42A507BCA00298F7A /* ChatInputView.swift in Sources */,
 				4412FEA22A5070BD007DEA72 /* FontTheme.swift in Sources */,
 				4412FEA02A507071007DEA72 /* ImageTheme.swift in Sources */,
+				449025512A5191D7003C79ED /* RoundedCorner.swift in Sources */,
 				44B223722A50187300A52640 /* ContentView.swift in Sources */,
 				4412FEAD2A50719A007DEA72 /* ChatView.swift in Sources */,
 				448410A82A5088C500298F7A /* IconTheme.swift in Sources */,

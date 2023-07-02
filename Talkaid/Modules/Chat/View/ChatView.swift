@@ -10,15 +10,30 @@ struct ChatView: View {
   // MARK: - Body
 
   var body: some View {
-    VStack(spacing: 16) {
-      ChatHeaderView()
-      ChatDateView()
-      ChatListView(chatMessages: $viewModel.chatMessages)
-      ChatInputView(inputText: $inputText, didTapSendButton: {
-        viewModel.sendMessage(inputText)
-      })
+    ZStack {
+      VStack(spacing: 16) {
+        ChatHeaderView()
+        ChatDateView()
+        ChatListView(chatMessages: $viewModel.chatMessages)
+        ChatInputView(inputText: $inputText, didTapSendButton: {
+            viewModel.sendMessage(inputText)
+        })
+      }
+      .padding(.horizontal, 16)
+      if viewModel.isLoading {
+        progressView
+      }
     }
-    .padding(.horizontal, 16)
+  }
+}
+
+private extension ChatView {
+  var progressView: some View {
+    ProgressView("Loading...")
+      .progressViewStyle(CircularProgressViewStyle(tint: ColorTheme.accentColor.color))
+      .foregroundColor(ColorTheme.accentColor.color)
+      .padding()
+      .frame(maxWidth: .infinity)
   }
 }
 

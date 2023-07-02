@@ -9,6 +9,8 @@ enum ColorTheme {
   case vividBlue
   case blue
   case purple
+  case aliceBlue
+  case azure
 
   var color: Color {
     switch self {
@@ -28,6 +30,10 @@ enum ColorTheme {
       return Color("Blue")
     case .purple:
       return Color("Purple")
+    case .aliceBlue:
+      return Color("AliceBlue")
+    case .azure:
+      return Color("Azure")
     }
   }
 }

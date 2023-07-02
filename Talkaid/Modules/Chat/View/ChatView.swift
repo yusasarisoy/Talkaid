@@ -5,6 +5,7 @@ struct ChatView: View {
   // MARK: - Properties
 
   @State private var inputText: String = ""
+  @ObservedObject private var viewModel = ChatViewModel()
 
   // MARK: - Body
 
@@ -12,8 +13,10 @@ struct ChatView: View {
     VStack(spacing: 16) {
       ChatHeaderView()
       ChatDateView()
-      ChatListView(chatMessages: .constant([]))
-      ChatInputView(inputText: $inputText)
+      ChatListView(chatMessages: $viewModel.chatMessages)
+      ChatInputView(inputText: $inputText, didTapSendButton: {
+        viewModel.sendMessage(inputText)
+      })
     }
     .padding(.horizontal, 16)
   }

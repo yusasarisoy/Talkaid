@@ -5,6 +5,7 @@ struct ChatInputView: View {
   // MARK: - Properties
 
   @Binding var inputText: String
+  var didTapSendButton: () -> Void
 
   // MARK: - View
   var body: some View {
@@ -44,33 +45,44 @@ private extension ChatInputView {
   }
 
   var sendButton: some View {
-    ZStack {
-      Rectangle()
-        .foregroundColor(.clear)
-        .frame(width: 40, height: 40)
-        .background(
-          LinearGradient(
-            stops: [
-              Gradient.Stop(color: ColorTheme.vividBlue.color, location: 0),
-              Gradient.Stop(color: ColorTheme.blue.color, location: 0.5),
-              Gradient.Stop(color: ColorTheme.purple.color, location: 1)
-            ],
-            startPoint: UnitPoint(x: 0.43, y: -0.53),
-            endPoint: UnitPoint(x: 0.78, y: 1.44)
+    Button(action: sendMessageAndClearTextField) {
+      ZStack {
+        Rectangle()
+          .foregroundColor(.clear)
+          .frame(width: 40, height: 40)
+          .background(
+            LinearGradient(
+              stops: [
+                Gradient.Stop(color: ColorTheme.vividBlue.color, location: 0),
+                Gradient.Stop(color: ColorTheme.blue.color, location: 0.5),
+                Gradient.Stop(color: ColorTheme.purple.color, location: 1)
+              ],
+              startPoint: UnitPoint(x: 0.43, y: -0.53),
+              endPoint: UnitPoint(x: 0.78, y: 1.44)
+            )
           )
-        )
-        .cornerRadius(100)
-      Image(systemName: IconTheme.arrowUp)
-        .foregroundColor(.white)
-        .font(.body.weight(.bold))
+          .cornerRadius(100)
+        Image(systemName: IconTheme.arrowUp)
+          .foregroundColor(.white)
+          .font(.body.weight(.bold))
+      }
     }
+  }
+}
+
+// MARK: - Private Helper Methods
+
+private extension ChatInputView {
+  func sendMessageAndClearTextField() {
+    didTapSendButton()
+    inputText = ""
   }
 }
 
 // MARK: - Preview
 struct ChatInputView_Previews: PreviewProvider {
   static var previews: some View {
-    ChatInputView(inputText: .constant(""))
+    ChatInputView(inputText: .constant(""), didTapSendButton: { })
       .previewLayout(.sizeThatFits)
   }
 }

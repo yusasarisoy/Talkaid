@@ -12,6 +12,7 @@ struct ChatView: View {
     VStack(spacing: 16) {
       ChatHeaderView()
       ChatDateView()
+      ChatListView(chatMessages: .constant([]))
       ChatInputView(inputText: $inputText)
     }
     .padding(.horizontal, 16)

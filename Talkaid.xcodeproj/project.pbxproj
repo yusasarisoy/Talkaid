@@ -111,7 +111,6 @@
 		4412FEA92A50718E007DEA72 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				445BEF032A5220A0001C86F2 /* Data */,
 				4412FEAA2A507190007DEA72 /* Chat */,
 			);
 			path = Modules;
@@ -160,6 +159,7 @@
 		445BEF022A522081001C86F2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				445BEF032A5220A0001C86F2 /* Data */,
 			);
 			path = Network;
 			sourceTree = "<group>";

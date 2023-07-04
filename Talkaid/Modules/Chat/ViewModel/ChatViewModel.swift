@@ -5,7 +5,7 @@ final class ChatViewModel: ObservableObject {
 
   // MARK: - Properties
 
-  @Published var inputText: String = ""
+  @Published var inputText: String = .empty
   @Published var isLoading = false
   @Published var chatMessages: [ChatBubble] = []
   @Published var errorType: Error?
@@ -23,7 +23,7 @@ final class ChatViewModel: ObservableObject {
 
 extension ChatViewModel {
   func sendMessage(_ message: ChatBubble) async {
-    inputText = ""
+    inputText = .empty
     guard message.content.isTextContainsCharacter else {
       errorType = .emptyMessage
       return

@@ -1,9 +1,9 @@
 extension Optional where Wrapped == String {
   var orEmpty: String {
-    self ?? ""
+    self ?? .empty
   }
 
   var isTextContainsCharacter: Bool {
-    !(self ?? "").trimmingCharacters(in: .whitespaces).isEmpty
+    !(self ?? .empty).trimmingCharacters(in: .whitespaces).isEmpty
   }
 }

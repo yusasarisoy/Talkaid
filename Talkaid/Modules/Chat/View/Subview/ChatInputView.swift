@@ -80,7 +80,7 @@ private extension ChatInputView {
 // MARK: - Preview
 struct ChatInputView_Previews: PreviewProvider {
   static var previews: some View {
-    ChatInputView(inputText: .constant(""), didTapSendButton: { })
+    ChatInputView(inputText: .constant(.empty), didTapSendButton: { })
       .previewLayout(.sizeThatFits)
   }
 }

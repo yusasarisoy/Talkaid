@@ -33,12 +33,12 @@ final class ChatViewModelTests: XCTestCase {
     // Then
     XCTAssertEqual(sut.chatMessages.count, 2)
     XCTAssertEqual(sut.chatMessages.first, userMessage)
-    XCTAssertEqual(sut.inputText, "")
+    XCTAssertEqual(sut.inputText, .empty)
   }
 
   func testSendEmptyMessage() async {
     // Given
-    let inputText = ""
+    let inputText: String = .empty
     let userMessage = ChatBubble(content: inputText, sender: .user)
 
     // When
@@ -47,7 +47,7 @@ final class ChatViewModelTests: XCTestCase {
 
     // Then
     XCTAssertEqual(sut.chatMessages.count, 0)
-    XCTAssertEqual(sut.inputText, "")
+    XCTAssertEqual(sut.inputText, .empty)
   }
 
   func testReceiveBotMessage() async {
@@ -61,6 +61,6 @@ final class ChatViewModelTests: XCTestCase {
 
     // Then
     XCTAssertEqual(sut.chatMessages.last, chatAssistantMessage)
-    XCTAssertEqual(sut.inputText, "")
+    XCTAssertEqual(sut.inputText, .empty)
   }
 }

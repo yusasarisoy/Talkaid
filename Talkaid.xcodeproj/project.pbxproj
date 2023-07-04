@@ -31,6 +31,7 @@
 		44B2237F2A501D8200A52640 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 44B2237E2A501D8200A52640 /* .swiftlint.yml */; };
 		44DEB4AA2A549D5500239F6A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEB4A92A549D5500239F6A /* Error.swift */; };
 		44DEB4AC2A549D8100239F6A /* LocalizedAlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEB4AB2A549D8100239F6A /* LocalizedAlertError.swift */; };
+		44DEB4AF2A54A29F00239F6A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEB4AE2A54A29F00239F6A /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		44B2237E2A501D8200A52640 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		44DEB4A92A549D5500239F6A /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		44DEB4AB2A549D8100239F6A /* LocalizedAlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlertError.swift; sourceTree = "<group>"; };
+		44DEB4AE2A54A29F00239F6A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				449025542A51943E003C79ED /* OptionalString.swift */,
-				4412FEB82A5072BB007DEA72 /* View.swift */,
 				445BEF082A522168001C86F2 /* Task.swift */,
+				4412FEB82A5072BB007DEA72 /* View.swift */,
+				44DEB4AE2A54A29F00239F6A /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				449025552A51943E003C79ED /* OptionalString.swift in Sources */,
 				4412FEB62A507269007DEA72 /* ChatDayView.swift in Sources */,
 				4412FEB12A5071D9007DEA72 /* ChatHeaderView.swift in Sources */,
+				44DEB4AF2A54A29F00239F6A /* String.swift in Sources */,
 				445BEF092A522168001C86F2 /* Task.swift in Sources */,
 				44B223702A50187300A52640 /* TalkaidApp.swift in Sources */,
 			);

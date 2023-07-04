@@ -70,6 +70,7 @@
 		44B223732A50187400A52640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B223762A50187400A52640 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44B2237E2A501D8200A52640 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		44DC46FB2A54A3B30066EB6C /* Talkaid.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Talkaid.xctestplan; sourceTree = "<group>"; };
 		44DEB4A92A549D5500239F6A /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		44DEB4AB2A549D8100239F6A /* LocalizedAlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlertError.swift; sourceTree = "<group>"; };
 		44DEB4AE2A54A29F00239F6A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -248,6 +249,7 @@
 		44B223632A50187300A52640 = {
 			isa = PBXGroup;
 			children = (
+				44DC46FB2A54A3B30066EB6C /* Talkaid.xctestplan */,
 				44B2236E2A50187300A52640 /* Talkaid */,
 				44683E982A5494C000EBB668 /* TalkaidTests */,
 				44B2236D2A50187300A52640 /* Products */,

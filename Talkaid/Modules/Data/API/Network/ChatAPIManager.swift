@@ -1,13 +1,13 @@
 import Foundation
 
 protocol ChatAPIManagerProtocol {
-  func sendMessage(_ message: String) async throws -> String
+  func sendMessage() async throws -> ChatBubble
 }
 
 final class MockChatAPIManager: ChatAPIManagerProtocol {
-  func sendMessage(_ message: String) async throws -> String {
+  func sendMessage() async throws -> ChatBubble {
     try await Task.sleep(for: 1.5)
-    let response = "Hello, how can I assist you?"
-    return response
+    let message = "Hello, how can I assist you?"
+    return ChatBubble(content: message, sender: .chatAssistant)
   }
 }

@@ -30,7 +30,6 @@ private extension ChatInputView {
           .foregroundColor(ColorTheme.micColor.color)
           .opacity(inputText.isEmpty ? 1 : 0)
           .onTapGesture {
-            inputText = ""
             // TODO: - Show voice input view and manage the voice input.
           },
         alignment: .trailing
@@ -75,7 +74,6 @@ private extension ChatInputView {
 private extension ChatInputView {
   func sendMessageAndClearTextField() {
     didTapSendButton()
-    inputText = ""
   }
 }
 

@@ -4,7 +4,6 @@ struct ChatView: View {
 
   // MARK: - Properties
 
-  @State private var inputText: String = ""
   @ObservedObject private var viewModel = ChatViewModel()
 
   // MARK: - Body
@@ -15,8 +14,10 @@ struct ChatView: View {
         ChatHeaderView()
         ChatDateView()
         ChatListView(chatMessages: $viewModel.chatMessages)
-        ChatInputView(inputText: $inputText, didTapSendButton: {
-            viewModel.sendMessage(inputText)
+        ChatInputView(inputText: $viewModel.inputText, didTapSendButton: {
+          Task {
+            await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
+          }
         })
       }
       .padding(.horizontal, 16)

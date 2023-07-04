@@ -16,6 +16,7 @@
 		4412FEB92A5072BB007DEA72 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB82A5072BB007DEA72 /* View.swift */; };
 		445BEF072A5220C7001C86F2 /* ChatAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */; };
 		445BEF092A522168001C86F2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF082A522168001C86F2 /* Task.swift */; };
+		44683EA42A54952100EBB668 /* ChatViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44683EA32A54952100EBB668 /* ChatViewModelTests.swift */; };
 		448410A42A507BCA00298F7A /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448410A32A507BCA00298F7A /* ChatInputView.swift */; };
 		448410A82A5088C500298F7A /* IconTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448410A72A5088C500298F7A /* IconTheme.swift */; };
 		449025512A5191D7003C79ED /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449025502A5191D7003C79ED /* RoundedCorner.swift */; };
@@ -52,6 +53,7 @@
 		445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPIManager.swift; sourceTree = "<group>"; };
 		445BEF082A522168001C86F2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		44683E972A5494C000EBB668 /* TalkaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44683EA32A54952100EBB668 /* ChatViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTests.swift; sourceTree = "<group>"; };
 		448410A32A507BCA00298F7A /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
 		448410A72A5088C500298F7A /* IconTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTheme.swift; sourceTree = "<group>"; };
 		449025502A5191D7003C79ED /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -189,8 +191,33 @@
 		44683E982A5494C000EBB668 /* TalkaidTests */ = {
 			isa = PBXGroup;
 			children = (
+				44683EA02A5494F900EBB668 /* Modules */,
 			);
 			path = TalkaidTests;
+			sourceTree = "<group>";
+		};
+		44683EA02A5494F900EBB668 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				44683EA12A5494FC00EBB668 /* Chat */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		44683EA12A5494FC00EBB668 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				44683EA22A54951500EBB668 /* ViewModel */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		44683EA22A54951500EBB668 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44683EA32A54952100EBB668 /* ChatViewModelTests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4490254F2A5191C7003C79ED /* Structs */ = {
@@ -310,6 +337,7 @@
 				TargetAttributes = {
 					44683E962A5494C000EBB668 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 						TestTargetID = 44B2236B2A50187300A52640;
 					};
 					44B2236B2A50187300A52640 = {
@@ -383,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44683EA42A54952100EBB668 /* ChatViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7GW83GWCK8;
@@ -435,6 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.yusasarisoy.TalkaidTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Talkaid.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Talkaid";
@@ -445,6 +476,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7GW83GWCK8;

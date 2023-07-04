@@ -5,6 +5,7 @@ final class ChatViewModel: ObservableObject {
 
   // MARK: - Properties
 
+  @Published var inputText: String = ""
   @Published var isLoading = false
   @Published var chatMessages: [ChatBubble] = []
 
@@ -20,19 +21,21 @@ final class ChatViewModel: ObservableObject {
 // MARK: - Internal Helper Methods
 
 extension ChatViewModel {
-  func sendMessage(_ message: String) {
-    Task {
-      isLoading = true
-      let newMessage = ChatBubble(content: message, sender: .user)
-      chatMessages.append(newMessage)
-      do {
-        let response = try await chatAPIManager.sendMessage(message)
-        let chatAssistantMessage = ChatBubble(content: response, sender: .chatAssistant)
-        chatMessages.append(chatAssistantMessage)
-      } catch {
-        // TODO: - Handle the error.
-      }
-      isLoading = false
+  func sendMessage(_ message: ChatBubble) async {
+    guard !(message.content?.isEmpty ?? false) else {
+      // TODO: - Show an alert
+      return
     }
+    inputText = ""
+    isLoading = true
+    chatMessages.append(message)
+    do {
+      guard message.sender == .user else { return }
+      let chatAssistantMessage = try await chatAPIManager.sendMessage()
+      chatMessages.append(chatAssistantMessage)
+    } catch {
+      // TODO: - Handle the error.
+    }
+    isLoading = false
   }
 }

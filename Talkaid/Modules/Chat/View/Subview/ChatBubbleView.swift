@@ -2,7 +2,7 @@ import SwiftUI
 
 // MARK: - ChatBubble
 
-struct ChatBubble: Identifiable {
+struct ChatBubble: Identifiable, Equatable {
   let id = UUID()
   let content: String?
   let sender: Sender?

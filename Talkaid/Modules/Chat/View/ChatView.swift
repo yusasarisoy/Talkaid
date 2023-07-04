@@ -25,6 +25,7 @@ struct ChatView: View {
         progressView
       }
     }
+    .showAlert(error: $viewModel.errorType)
   }
 }
 

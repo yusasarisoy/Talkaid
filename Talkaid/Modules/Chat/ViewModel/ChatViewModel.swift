@@ -8,6 +8,7 @@ final class ChatViewModel: ObservableObject {
   @Published var inputText: String = ""
   @Published var isLoading = false
   @Published var chatMessages: [ChatBubble] = []
+  @Published var errorType: Error?
 
   private let chatAPIManager: ChatAPIManagerProtocol
 
@@ -22,11 +23,11 @@ final class ChatViewModel: ObservableObject {
 
 extension ChatViewModel {
   func sendMessage(_ message: ChatBubble) async {
-    guard !(message.content?.isEmpty ?? false) else {
-      // TODO: - Show an alert
+    inputText = ""
+    guard message.content.isTextContainsCharacter else {
+      errorType = .emptyMessage
       return
     }
-    inputText = ""
     isLoading = true
     chatMessages.append(message)
     do {
@@ -34,7 +35,7 @@ extension ChatViewModel {
       let chatAssistantMessage = try await chatAPIManager.sendMessage()
       chatMessages.append(chatAssistantMessage)
     } catch {
-      // TODO: - Handle the error.
+      errorType = .unableToConnectToChatAssistant
     }
     isLoading = false
   }

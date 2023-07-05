@@ -28,10 +28,10 @@ final class ChatViewModelTests: XCTestCase {
     let userMessage = ChatBubble(content: inputText, sender: .user)
 
     // When
-    await sut.sendMessage(userMessage)
+    sut.sendMessage(userMessage)
 
     // Then
-    XCTAssertEqual(sut.chatMessages.count, 2)
+    XCTAssertEqual(sut.chatMessages.count, 1)
     XCTAssertEqual(sut.chatMessages.first, userMessage)
     XCTAssertEqual(sut.inputText, .empty)
   }
@@ -43,7 +43,7 @@ final class ChatViewModelTests: XCTestCase {
 
     // When
     sut.inputText = inputText
-    await sut.sendMessage(userMessage)
+    sut.sendMessage(userMessage)
 
     // Then
     XCTAssertEqual(sut.chatMessages.count, 0)
@@ -57,7 +57,7 @@ final class ChatViewModelTests: XCTestCase {
 
     // When
     sut.inputText = inputText
-    await sut.sendMessage(chatAssistantMessage)
+    sut.sendMessage(chatAssistantMessage)
 
     // Then
     XCTAssertEqual(sut.chatMessages.last, chatAssistantMessage)

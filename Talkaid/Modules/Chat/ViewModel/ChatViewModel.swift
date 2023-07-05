@@ -6,6 +6,7 @@ final class ChatViewModel: ObservableObject {
   // MARK: - Properties
 
   @Published var inputText: String = .empty
+  @Published var showVoiceInput: Bool = false
   @Published var isLoading = false
   @Published var chatMessages: [ChatBubble] = []
   @Published var errorType: Error?

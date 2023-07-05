@@ -5,14 +5,29 @@ struct ChatInputView: View {
   // MARK: - Properties
 
   @Binding var inputText: String
+  @Binding var showVoiceInput: Bool
   var didTapSendButton: () -> Void
 
   // MARK: - View
+
   var body: some View {
-    HStack(spacing: 10) {
-      inputTextField
-      if !inputText.isEmpty {
-        sendButton
+    GeometryReader { geometry in
+      VStack(spacing: 0) {
+        Spacer()
+        VStack {
+          HStack(spacing: 10) {
+            inputTextField
+            if !inputText.isEmpty {
+              sendButton
+            }
+          }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 9)
+        if showVoiceInput {
+          voiceInputView
+            .frame(height: geometry.size.height * 0.33)
+        }
       }
     }
   }
@@ -30,7 +45,7 @@ private extension ChatInputView {
           .foregroundColor(ColorTheme.micColor.color)
           .opacity(inputText.isEmpty ? 1 : 0)
           .onTapGesture {
-            // TODO: - Show voice input view and manage the voice input.
+            showVoiceInput = true
           },
         alignment: .trailing
       )
@@ -44,7 +59,7 @@ private extension ChatInputView {
   }
 
   var sendButton: some View {
-    Button(action: sendMessageAndClearTextField) {
+    Button(action: didTapSendButton) {
       ZStack {
         Rectangle()
           .foregroundColor(.clear)
@@ -67,20 +82,38 @@ private extension ChatInputView {
       }
     }
   }
-}
 
-// MARK: - Private Helper Methods
-
-private extension ChatInputView {
-  func sendMessageAndClearTextField() {
-    didTapSendButton()
+  var voiceInputView: some View {
+    VStack {
+      ZStack {
+        Rectangle()
+          .foregroundColor(.clear)
+          .frame(width: 170, height: 170)
+          .background(.black.opacity(0.1))
+          .cornerRadius(170)
+        Text("🛑 Tap to stop recording")
+          .font(.custom(FontTheme.sfProText, size: 17))
+          .foregroundColor(.white)
+        VStack {
+          HStack {
+            Text("00:01")
+              .font(.custom(FontTheme.sfProText, size: 17))
+              .foregroundColor(.white)
+              .padding([.leading, .top], 16)
+            Spacer()
+          }
+          Spacer()
+        }
+      }
+    }
+    .background(ColorTheme.mainBlue.color)
   }
 }
 
 // MARK: - Preview
 struct ChatInputView_Previews: PreviewProvider {
   static var previews: some View {
-    ChatInputView(inputText: .constant(.empty), didTapSendButton: { })
+    ChatInputView(inputText: .constant(.empty), showVoiceInput: .constant(true), didTapSendButton: { })
       .previewLayout(.sizeThatFits)
   }
 }

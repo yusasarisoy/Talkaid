@@ -14,13 +14,16 @@ struct ChatView: View {
         ChatHeaderView()
         ChatDateView()
         ChatListView(chatMessages: $viewModel.chatMessages)
-        ChatInputView(inputText: $viewModel.inputText, didTapSendButton: {
-          Task {
-            await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
-          }
-        })
       }
       .padding(.horizontal, 16)
+      ChatInputView(
+        inputText: $viewModel.inputText,
+        showVoiceInput: $viewModel.showVoiceInput
+      ) {
+        Task {
+          await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
+        }
+      }
       if viewModel.isLoading {
         progressView
       }

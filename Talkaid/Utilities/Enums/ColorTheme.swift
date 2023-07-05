@@ -8,6 +8,7 @@ enum ColorTheme {
   case chatInputBackground
   case echoBlue
   case ghostWhite
+  case mainBlue
   case micColor
   case purple
   case vividBlue
@@ -28,6 +29,8 @@ enum ColorTheme {
       return Color("EchoBlue")
     case .ghostWhite:
       return Color("GhostWhite")
+    case .mainBlue:
+      return Color("MainBlue")
     case .micColor:
       return Color("MicColor")
     case .purple:

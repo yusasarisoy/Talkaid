@@ -4,15 +4,18 @@ struct ChatInputView: View {
 
   // MARK: - Properties
 
+  @State private var voiceInputRecordingTime = Date().addingTimeInterval(.zero)
   @Binding var inputText: String
   @Binding var showVoiceInput: Bool
-  var didTapSendButton: () -> Void
+
+  var sendMessage: () -> Void
+  var sendVoiceInput: () -> Void
 
   // MARK: - View
 
   var body: some View {
     GeometryReader { geometry in
-      VStack(spacing: 0) {
+      VStack(spacing: .zero) {
         Spacer()
         VStack {
           HStack(spacing: 10) {
@@ -26,7 +29,7 @@ struct ChatInputView: View {
         .padding(.vertical, 9)
         if showVoiceInput {
           voiceInputView
-            .frame(height: geometry.size.height * 0.33)
+            .frame(height: geometry.size.height / 3)
         }
       }
     }
@@ -45,7 +48,8 @@ private extension ChatInputView {
           .foregroundColor(ColorTheme.micColor.color)
           .opacity(inputText.isEmpty ? 1 : 0)
           .onTapGesture {
-            showVoiceInput = true
+            sendVoiceInput()
+            voiceInputRecordingTime = Date().addingTimeInterval(.zero)
           },
         alignment: .trailing
       )
@@ -59,7 +63,7 @@ private extension ChatInputView {
   }
 
   var sendButton: some View {
-    Button(action: didTapSendButton) {
+    Button(action: sendMessage) {
       ZStack {
         Rectangle()
           .foregroundColor(.clear)
@@ -91,12 +95,12 @@ private extension ChatInputView {
           .frame(width: 170, height: 170)
           .background(.black.opacity(0.1))
           .cornerRadius(170)
-        Text("🛑 Tap to stop recording")
+        Text("🎤 Tap to stop recording")
           .font(.custom(FontTheme.sfProText, size: 17))
           .foregroundColor(.white)
         VStack {
           HStack {
-            Text("00:01")
+            Text(voiceInputRecordingTime, style: .timer)
               .font(.custom(FontTheme.sfProText, size: 17))
               .foregroundColor(.white)
               .padding([.leading, .top], 16)
@@ -107,13 +111,21 @@ private extension ChatInputView {
       }
     }
     .background(ColorTheme.mainBlue.color)
+    .onTapGesture {
+      sendVoiceInput()
+    }
   }
 }
 
 // MARK: - Preview
 struct ChatInputView_Previews: PreviewProvider {
   static var previews: some View {
-    ChatInputView(inputText: .constant(.empty), showVoiceInput: .constant(true), didTapSendButton: { })
+    ChatInputView(
+      inputText: .constant(.empty),
+      showVoiceInput: .constant(true),
+      sendMessage: { },
+      sendVoiceInput: { }
+    )
       .previewLayout(.sizeThatFits)
   }
 }

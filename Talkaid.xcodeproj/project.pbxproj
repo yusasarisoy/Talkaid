@@ -14,6 +14,11 @@
 		4412FEB12A5071D9007DEA72 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB02A5071D9007DEA72 /* ChatHeaderView.swift */; };
 		4412FEB62A507269007DEA72 /* ChatDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB52A507269007DEA72 /* ChatDayView.swift */; };
 		4412FEB92A5072BB007DEA72 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB82A5072BB007DEA72 /* View.swift */; };
+		444204DE2A56093500DD381F /* VoiceInputRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204DD2A56093500DD381F /* VoiceInputRecognizer.swift */; };
+		444204E02A56097500DD381F /* VoiceInputRecognizerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204DF2A56097500DD381F /* VoiceInputRecognizerError.swift */; };
+		444204E22A560BCE00DD381F /* OptionalBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204E12A560BCE00DD381F /* OptionalBool.swift */; };
+		444204E42A560CE200DD381F /* SFSpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204E32A560CE200DD381F /* SFSpeechRecognizer.swift */; };
+		444204E62A560CED00DD381F /* AVAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204E52A560CED00DD381F /* AVAudioSession.swift */; };
 		445BEF072A5220C7001C86F2 /* ChatAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */; };
 		445BEF092A522168001C86F2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF082A522168001C86F2 /* Task.swift */; };
 		44683EA42A54952100EBB668 /* ChatViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44683EA32A54952100EBB668 /* ChatViewModelTests.swift */; };
@@ -53,6 +58,11 @@
 		4412FEB02A5071D9007DEA72 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
 		4412FEB52A507269007DEA72 /* ChatDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDayView.swift; sourceTree = "<group>"; };
 		4412FEB82A5072BB007DEA72 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		444204DD2A56093500DD381F /* VoiceInputRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputRecognizer.swift; sourceTree = "<group>"; };
+		444204DF2A56097500DD381F /* VoiceInputRecognizerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputRecognizerError.swift; sourceTree = "<group>"; };
+		444204E12A560BCE00DD381F /* OptionalBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalBool.swift; sourceTree = "<group>"; };
+		444204E32A560CE200DD381F /* SFSpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSpeechRecognizer.swift; sourceTree = "<group>"; };
+		444204E52A560CED00DD381F /* AVAudioSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioSession.swift; sourceTree = "<group>"; };
 		445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPIManager.swift; sourceTree = "<group>"; };
 		445BEF082A522168001C86F2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		44683E972A5494C000EBB668 /* TalkaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +122,7 @@
 				4412FEA12A5070BD007DEA72 /* FontTheme.swift */,
 				448410A72A5088C500298F7A /* IconTheme.swift */,
 				4412FE9F2A507071007DEA72 /* ImageTheme.swift */,
+				444204DF2A56097500DD381F /* VoiceInputRecognizerError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -157,12 +168,23 @@
 		4412FEB72A5072B3007DEA72 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				444204E52A560CED00DD381F /* AVAudioSession.swift */,
+				444204E12A560BCE00DD381F /* OptionalBool.swift */,
 				449025542A51943E003C79ED /* OptionalString.swift */,
+				444204E32A560CE200DD381F /* SFSpeechRecognizer.swift */,
+				44DEB4AE2A54A29F00239F6A /* String.swift */,
 				445BEF082A522168001C86F2 /* Task.swift */,
 				4412FEB82A5072BB007DEA72 /* View.swift */,
-				44DEB4AE2A54A29F00239F6A /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		444204DC2A56091400DD381F /* Voice Input Recognition */ = {
+			isa = PBXGroup;
+			children = (
+				444204DD2A56093500DD381F /* VoiceInputRecognizer.swift */,
+			);
+			path = "Voice Input Recognition";
 			sourceTree = "<group>";
 		};
 		445BEF022A522081001C86F2 /* Network */ = {
@@ -275,6 +297,7 @@
 				4412FEA92A50718E007DEA72 /* Modules */,
 				445BEF022A522081001C86F2 /* Network */,
 				44B223752A50187400A52640 /* Preview Content */,
+				444204DC2A56091400DD381F /* Voice Input Recognition */,
 				44B2237D2A501D7100A52640 /* Supporting Files */,
 				4412FE852A506436007DEA72 /* Utilities */,
 			);
@@ -398,8 +421,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		44B223802A501D9D00A52640 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -411,7 +433,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
@@ -441,6 +463,10 @@
 				44DEB4AC2A549D8100239F6A /* LocalizedAlertError.swift in Sources */,
 				44B223722A50187300A52640 /* ContentView.swift in Sources */,
 				4412FEAD2A50719A007DEA72 /* ChatView.swift in Sources */,
+				444204E42A560CE200DD381F /* SFSpeechRecognizer.swift in Sources */,
+				444204E62A560CED00DD381F /* AVAudioSession.swift in Sources */,
+				444204E02A56097500DD381F /* VoiceInputRecognizerError.swift in Sources */,
+				444204E22A560BCE00DD381F /* OptionalBool.swift in Sources */,
 				448410A82A5088C500298F7A /* IconTheme.swift in Sources */,
 				4412FEB92A5072BB007DEA72 /* View.swift in Sources */,
 				4490255C2A519730003C79ED /* ChatViewModel.swift in Sources */,
@@ -449,6 +475,7 @@
 				4412FEB62A507269007DEA72 /* ChatDayView.swift in Sources */,
 				4412FEB12A5071D9007DEA72 /* ChatHeaderView.swift in Sources */,
 				44DEB4AF2A54A29F00239F6A /* String.swift in Sources */,
+				444204DE2A56093500DD381F /* VoiceInputRecognizer.swift in Sources */,
 				445BEF092A522168001C86F2 /* Task.swift in Sources */,
 				44B223702A50187300A52640 /* TalkaidApp.swift in Sources */,
 			);
@@ -633,6 +660,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Talkaid/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone access to facilitate voice input and enhance your chat experience by allowing you to send voice messages and engage in voice-based conversations.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app requires access to speech recognition to enable voice commands and dictation within the app, providing a hands-free and convenient user experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -668,6 +697,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Talkaid/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone access to facilitate voice input and enhance your chat experience by allowing you to send voice messages and engage in voice-based conversations.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app requires access to speech recognition to enable voice commands and dictation within the app, providing a hands-free and convenient user experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

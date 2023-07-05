@@ -23,7 +23,7 @@ final class ChatViewModel: ObservableObject {
 // MARK: - Internal Helper Methods
 
 extension ChatViewModel {
-  func sendMessage(_ message: ChatBubble) async {
+  func sendMessage(_ message: ChatBubble) {
     inputText = .empty
     guard message.content.isTextContainsCharacter else {
       errorType = .emptyMessage
@@ -31,12 +31,14 @@ extension ChatViewModel {
     }
     isLoading = true
     chatMessages.append(message)
-    do {
-      guard message.sender == .user else { return }
-      let chatAssistantMessage = try await chatAPIManager.sendMessage()
-      chatMessages.append(chatAssistantMessage)
-    } catch {
-      errorType = .unableToConnectToChatAssistant
+    Task {
+      do {
+        guard message.sender == .user else { return }
+        let chatAssistantMessage = try await chatAPIManager.sendMessage()
+        chatMessages.append(chatAssistantMessage)
+      } catch {
+        errorType = .unableToConnectToChatAssistant
+      }
     }
     isLoading = false
   }

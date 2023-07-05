@@ -10,12 +10,11 @@ struct ChatListView: View {
 
   var body: some View {
     ScrollView {
-      VStack(spacing: 16) {
+      LazyVStack {
         ForEach(chatMessages) { message in
           ChatBubbleView(message: message)
         }
       }
-      .padding()
     }
   }
 }

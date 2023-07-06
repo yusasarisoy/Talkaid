@@ -10,6 +10,7 @@ final class ChatViewModel: ObservableObject {
   @Published var isLoading = false
   @Published var chatMessages: [ChatBubble] = []
   @Published var errorType: Error?
+  @Published var greetUser = GreetUser(title: .empty, description: .empty)
 
   private let chatAPIManager: ChatAPIManagerProtocol
 
@@ -23,6 +24,12 @@ final class ChatViewModel: ObservableObject {
 // MARK: - Internal Helper Methods
 
 extension ChatViewModel {
+  func greetTheUser() async throws {
+    isLoading = true
+    greetUser = try await chatAPIManager.greetUser()
+    isLoading = false
+  }
+
   func sendMessage(_ message: ChatBubble) {
     inputText = .empty
     guard message.content.isTextContainsCharacter else {

@@ -12,7 +12,8 @@ struct ChatView: View {
   var body: some View {
     ZStack {
       VStack(spacing: 16) {
-        ChatHeaderView()
+        ChatHeaderView(greetUser: viewModel.greetUser)
+          .opacity(viewModel.isLoading ? 0 : 1)
         ChatDateView()
         ChatListView(chatMessages: $viewModel.chatMessages)
       }
@@ -34,6 +35,13 @@ struct ChatView: View {
       }
       if viewModel.isLoading {
         progressView
+      }
+    }
+    .task {
+      do {
+        try await viewModel.greetTheUser()
+      } catch {
+        viewModel.errorType = .unableToConnectToChatAssistant
       }
     }
     .showAlert(error: $viewModel.errorType)

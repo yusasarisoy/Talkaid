@@ -1,6 +1,22 @@
 import SwiftUI
 
+// MARK: - GreetUser
+
+struct GreetUser {
+  let title: String?
+  let description: String?
+}
+
+// MARK: - ChatHeaderView
+
 struct ChatHeaderView: View {
+
+  // MARK: - Properties
+  
+  let greetUser: GreetUser
+
+  // MARK: - Body
+
   var body: some View {
     HStack {
       VStack {
@@ -12,10 +28,10 @@ struct ChatHeaderView: View {
         Spacer()
       }
       VStack(alignment: .leading, spacing: 4) {
-        Text("Good morning, Samantha")
+        Text(greetUser.title.orEmpty)
           .font(.custom(FontTheme.sfProDisplay, size: 20).weight(.heavy))
           .foregroundColor(ColorTheme.accentColor.color)
-        Text("How can I help you today?")
+        Text(greetUser.description.orEmpty)
           .font(.custom(FontTheme.sfProText, size: 15))
           .foregroundColor(ColorTheme.echoBlue.color)
       }
@@ -26,9 +42,16 @@ struct ChatHeaderView: View {
   }
 }
 
+// MARK: - Preview
+
 struct ChatHeaderView_Previews: PreviewProvider {
   static var previews: some View {
-    ChatHeaderView()
-      .previewLayout(.sizeThatFits)
+    ChatHeaderView(
+      greetUser: GreetUser(
+        title: "Good morning, Samantha",
+        description: "How can I help you today?"
+      )
+    )
+    .previewLayout(.sizeThatFits)
   }
 }

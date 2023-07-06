@@ -39,6 +39,9 @@ struct ChatInputView: View {
 private extension ChatInputView {
   var inputTextField: some View {
     TextField("✨ Ask me anything", text: $inputText)
+      .onSubmit {
+        sendMessage()
+      }
       .font(.custom(FontTheme.sfProText, size: 17).weight(.bold))
       .autocorrectionDisabled(true)
       .foregroundColor(ColorTheme.micColor.color)

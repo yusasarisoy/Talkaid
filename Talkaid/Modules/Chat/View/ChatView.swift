@@ -43,9 +43,7 @@ struct ChatView: View {
         }
         viewModel.showVoiceInput.toggle()
       }
-      if viewModel.isLoading {
-        progressView
-      }
+      ChatCircleAnimationView(animate: $viewModel.isLoading)
     }
     .task {
       do {
@@ -55,18 +53,6 @@ struct ChatView: View {
       }
     }
     .showAlert(error: $viewModel.errorType)
-  }
-}
-
-// MARK: - Progress View
-
-private extension ChatView {
-  var progressView: some View {
-    ProgressView("Loading...")
-      .progressViewStyle(CircularProgressViewStyle(tint: ColorTheme.accentColor.color))
-      .foregroundColor(ColorTheme.accentColor.color)
-      .padding()
-      .frame(maxWidth: .infinity)
   }
 }
 

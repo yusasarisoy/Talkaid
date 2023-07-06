@@ -22,6 +22,7 @@
 		445BEF072A5220C7001C86F2 /* ChatAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */; };
 		445BEF092A522168001C86F2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF082A522168001C86F2 /* Task.swift */; };
 		4460F27E2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4460F27D2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift */; };
+		4460F2802A57482500BC1D9D /* ChatCircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4460F27F2A57482500BC1D9D /* ChatCircleAnimationView.swift */; };
 		44683EA42A54952100EBB668 /* ChatViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44683EA32A54952100EBB668 /* ChatViewModelTests.swift */; };
 		448410A42A507BCA00298F7A /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448410A32A507BCA00298F7A /* ChatInputView.swift */; };
 		448410A82A5088C500298F7A /* IconTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448410A72A5088C500298F7A /* IconTheme.swift */; };
@@ -67,6 +68,7 @@
 		445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPIManager.swift; sourceTree = "<group>"; };
 		445BEF082A522168001C86F2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4460F27D2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputRecognizerTests.swift; sourceTree = "<group>"; };
+		4460F27F2A57482500BC1D9D /* ChatCircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCircleAnimationView.swift; sourceTree = "<group>"; };
 		44683E972A5494C000EBB668 /* TalkaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44683EA32A54952100EBB668 /* ChatViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTests.swift; sourceTree = "<group>"; };
 		448410A32A507BCA00298F7A /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				449025522A5192FF003C79ED /* ChatBubbleView.swift */,
+				4460F27F2A57482500BC1D9D /* ChatCircleAnimationView.swift */,
 				4412FEB52A507269007DEA72 /* ChatDayView.swift */,
 				4412FEB02A5071D9007DEA72 /* ChatHeaderView.swift */,
 				448410A32A507BCA00298F7A /* ChatInputView.swift */,
@@ -467,6 +470,7 @@
 				44DEB4AA2A549D5500239F6A /* Error.swift in Sources */,
 				4412FE8A2A5065FB007DEA72 /* ColorTheme.swift in Sources */,
 				449025592A5195AC003C79ED /* ChatListView.swift in Sources */,
+				4460F2802A57482500BC1D9D /* ChatCircleAnimationView.swift in Sources */,
 				445BEF072A5220C7001C86F2 /* ChatAPIManager.swift in Sources */,
 				448410A42A507BCA00298F7A /* ChatInputView.swift in Sources */,
 				4412FEA22A5070BD007DEA72 /* FontTheme.swift in Sources */,

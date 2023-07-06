@@ -24,7 +24,7 @@ extension MockChatAPIManager: ChatAPIManagerProtocol {
   }
   
   func greetUser(with greetUser: GreetUser) async throws -> GreetUser {
-    try await Task.sleep(for: 0.5)
+    try await Task.sleep(for: 1.5)
     let greetUser = GreetUser(
       title: greetUser.title,
       description: greetUser.description

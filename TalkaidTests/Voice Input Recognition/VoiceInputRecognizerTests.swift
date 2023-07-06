@@ -26,7 +26,7 @@ final class VoiceInputRecognizerTests: XCTestCase {
     
     // Then
     try await Task.sleep(for: 2)
-    XCTAssertNotNil(voiceInputRecognizer.request)
+    XCTAssertTrue((recognizer?.isAvailable).orFalse)
     expectation.fulfill()
   }
   

@@ -2,7 +2,7 @@ import SwiftUI
 
 // MARK: - GreetUser
 
-struct GreetUser {
+struct GreetUser: Equatable {
   let title: String?
   let description: String?
 }

@@ -26,7 +26,12 @@ final class ChatViewModel: ObservableObject {
 extension ChatViewModel {
   func greetTheUser() async throws {
     isLoading = true
-    greetUser = try await chatAPIManager.greetUser()
+    greetUser = try await chatAPIManager.greetUser(
+      with: GreetUser(
+        title: "Good morning, Samantha",
+        description: "How can I help you today?"
+      )
+    )
     isLoading = false
   }
 
@@ -36,9 +41,9 @@ extension ChatViewModel {
       errorType = .emptyMessage
       return
     }
-    isLoading = true
-    chatMessages.append(message)
     Task {
+      isLoading = true
+      chatMessages.append(message)
       do {
         guard message.sender == .user else { return }
         let chatAssistantMessage = try await chatAPIManager.sendMessage()
@@ -46,7 +51,7 @@ extension ChatViewModel {
       } catch {
         errorType = .unableToConnectToChatAssistant
       }
+      isLoading = false
     }
-    isLoading = false
   }
 }

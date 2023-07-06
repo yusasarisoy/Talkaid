@@ -7,13 +7,23 @@ struct ChatView: View {
   @ObservedObject private var viewModel = ChatViewModel()
   @ObservedObject private var voiceInputRecognizer = VoiceInputRecognizer()
 
+  // MARK: - Initialization
+
+  init(
+    viewModel: ChatViewModel,
+    voiceInputRecognizer: VoiceInputRecognizer
+  ) {
+    self.viewModel = viewModel
+    self.voiceInputRecognizer = voiceInputRecognizer
+  }
+  
   // MARK: - Body
 
   var body: some View {
     ZStack {
       VStack(spacing: 16) {
         ChatHeaderView(greetUser: viewModel.greetUser)
-          .opacity(viewModel.isLoading ? 0 : 1)
+          .opacity((viewModel.greetUser.title?.isEmpty).orFalse ? 0 : 1)
         ChatDateView()
         ChatListView(chatMessages: $viewModel.chatMessages)
       }
@@ -65,9 +75,15 @@ private extension ChatView {
 struct ChatView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      ChatView()
-      ChatView()
-        .preferredColorScheme(.dark)
+      ChatView(
+        viewModel: ChatViewModel(),
+        voiceInputRecognizer: VoiceInputRecognizer()
+      )
+      ChatView(
+        viewModel: ChatViewModel(),
+        voiceInputRecognizer: VoiceInputRecognizer()
+      )
+      .preferredColorScheme(.dark)
     }
   }
 }

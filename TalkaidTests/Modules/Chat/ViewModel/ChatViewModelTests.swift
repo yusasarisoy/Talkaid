@@ -7,16 +7,19 @@ final class ChatViewModelTests: XCTestCase {
   // MARK: - Properties
 
   private var sut: ChatViewModel!
+  private var chatAPIManager: MockChatAPIManager!
 
   // MARK: - Override Methods
 
   override func setUp() {
     super.setUp()
-    sut = ChatViewModel()
+    chatAPIManager = MockChatAPIManager()
+    sut = ChatViewModel(chatAPIManager: chatAPIManager)
   }
 
   override func tearDown() {
     sut = nil
+    chatAPIManager = nil
     super.tearDown()
   }
 
@@ -46,7 +49,7 @@ final class ChatViewModelTests: XCTestCase {
     sut.sendMessage(userMessage)
 
     // Then
-    XCTAssertEqual(sut.chatMessages.count, 0)
+    XCTAssertEqual(sut.chatMessages.count, .zero)
     XCTAssertEqual(sut.inputText, .empty)
   }
 
@@ -62,5 +65,50 @@ final class ChatViewModelTests: XCTestCase {
     // Then
     XCTAssertEqual(sut.chatMessages.last, chatAssistantMessage)
     XCTAssertEqual(sut.inputText, .empty)
+  }
+
+  func testGreetTheUser() async throws {
+    // Given
+    let expectedGreetUser = GreetUser(
+      title: "Good morning, Samantha",
+      description: "How can I help you today?"
+    )
+
+    // When
+    try await sut.greetTheUser()
+    chatAPIManager.greetUserReturnValue = expectedGreetUser
+
+    // Then
+    XCTAssertEqual(sut.greetUser, expectedGreetUser)
+    XCTAssertFalse(sut.isLoading)
+  }
+
+  func testSendMessageWithValidMessage() {
+    // Given
+    let message = ChatBubble(content: "Hello", sender: .user)
+
+    // When
+    sut.sendMessage(message)
+
+    // Then
+    XCTAssertEqual(sut.inputText, .empty)
+    XCTAssertFalse(sut.isLoading)
+    XCTAssertEqual(sut.chatMessages.count, 1)
+    XCTAssertEqual(sut.chatMessages.first, message)
+    XCTAssertNil(sut.errorType)
+  }
+
+  func testSendMessageWithInvalidMessage() {
+    // Given
+    let message = ChatBubble(content: .empty, sender: .user)
+
+    // When
+    sut.sendMessage(message)
+
+    // Then
+    XCTAssertEqual(sut.inputText, .empty)
+    XCTAssertFalse(sut.isLoading)
+    XCTAssertEqual(sut.chatMessages.count, .zero)
+    XCTAssertEqual(sut.errorType, .emptyMessage)
   }
 }

@@ -109,9 +109,9 @@
 		4412FE852A506436007DEA72 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				4490254F2A5191C7003C79ED /* Structs */,
 				4412FE862A50643D007DEA72 /* Enums */,
 				4412FEB72A5072B3007DEA72 /* Extensions */,
+				4490254F2A5191C7003C79ED /* Structs */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 		44683E982A5494C000EBB668 /* TalkaidTests */ = {
 			isa = PBXGroup;
 			children = (
-				4460F27C2A573D9500BC1D9D /* Voice Input Recognition */,
 				44683EA02A5494F900EBB668 /* Modules */,
+				4460F27C2A573D9500BC1D9D /* Voice Input Recognition */,
 			);
 			path = TalkaidTests;
 			sourceTree = "<group>";
@@ -265,8 +265,8 @@
 		4490254F2A5191C7003C79ED /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				449025502A5191D7003C79ED /* RoundedCorner.swift */,
 				44DEB4AB2A549D8100239F6A /* LocalizedAlertError.swift */,
+				449025502A5191D7003C79ED /* RoundedCorner.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -308,9 +308,9 @@
 				4412FEA92A50718E007DEA72 /* Modules */,
 				445BEF022A522081001C86F2 /* Network */,
 				44B223752A50187400A52640 /* Preview Content */,
-				444204DC2A56091400DD381F /* Voice Input Recognition */,
 				44B2237D2A501D7100A52640 /* Supporting Files */,
 				4412FE852A506436007DEA72 /* Utilities */,
+				444204DC2A56091400DD381F /* Voice Input Recognition */,
 			);
 			path = Talkaid;
 			sourceTree = "<group>";

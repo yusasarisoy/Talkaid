@@ -21,6 +21,7 @@
 		444204E62A560CED00DD381F /* AVAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204E52A560CED00DD381F /* AVAudioSession.swift */; };
 		445BEF072A5220C7001C86F2 /* ChatAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */; };
 		445BEF092A522168001C86F2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF082A522168001C86F2 /* Task.swift */; };
+		4460F27E2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4460F27D2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift */; };
 		44683EA42A54952100EBB668 /* ChatViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44683EA32A54952100EBB668 /* ChatViewModelTests.swift */; };
 		448410A42A507BCA00298F7A /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448410A32A507BCA00298F7A /* ChatInputView.swift */; };
 		448410A82A5088C500298F7A /* IconTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448410A72A5088C500298F7A /* IconTheme.swift */; };
@@ -65,6 +66,7 @@
 		444204E52A560CED00DD381F /* AVAudioSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioSession.swift; sourceTree = "<group>"; };
 		445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPIManager.swift; sourceTree = "<group>"; };
 		445BEF082A522168001C86F2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4460F27D2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputRecognizerTests.swift; sourceTree = "<group>"; };
 		44683E972A5494C000EBB668 /* TalkaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44683EA32A54952100EBB668 /* ChatViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTests.swift; sourceTree = "<group>"; };
 		448410A32A507BCA00298F7A /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
@@ -219,9 +221,18 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		4460F27C2A573D9500BC1D9D /* Voice Input Recognition */ = {
+			isa = PBXGroup;
+			children = (
+				4460F27D2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift */,
+			);
+			path = "Voice Input Recognition";
+			sourceTree = "<group>";
+		};
 		44683E982A5494C000EBB668 /* TalkaidTests */ = {
 			isa = PBXGroup;
 			children = (
+				4460F27C2A573D9500BC1D9D /* Voice Input Recognition */,
 				44683EA02A5494F900EBB668 /* Modules */,
 			);
 			path = TalkaidTests;
@@ -445,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44683EA42A54952100EBB668 /* ChatViewModelTests.swift in Sources */,
+				4460F27E2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

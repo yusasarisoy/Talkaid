@@ -7,14 +7,14 @@ final class VoiceInputRecognizer: ObservableObject {
   @Published var transcript: String = .empty
 
   private var audioEngine: AVAudioEngine?
-  private var request: SFSpeechAudioBufferRecognitionRequest?
+  var request: SFSpeechAudioBufferRecognitionRequest?
   private var task: SFSpeechRecognitionTask?
-  private let recognizer: SFSpeechRecognizer?
+  private var recognizer: SFSpeechRecognizer?
 
   // MARK: - Initialization
 
-  init() {
-    recognizer = SFSpeechRecognizer()
+  init(recognizer: SFSpeechRecognizer? = SFSpeechRecognizer()) {
+    self.recognizer = recognizer
     checkAnyErrorForSpeechRecognizer()
   }
 

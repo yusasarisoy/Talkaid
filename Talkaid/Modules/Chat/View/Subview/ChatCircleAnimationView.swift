@@ -10,7 +10,7 @@ struct ChatCircleAnimationView: View {
 
   var body: some View {
     Circle()
-      .stroke(lineWidth: 5)
+      .stroke(lineWidth: 50)
       .scale(animate ? 0.5 : 0)
       .opacity(animate ? 0 : 1)
       .animation(animate ? .easeIn(duration: 1.5) : .none, value: animate)

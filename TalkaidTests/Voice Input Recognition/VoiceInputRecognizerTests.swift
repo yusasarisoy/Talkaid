@@ -25,7 +25,7 @@ final class VoiceInputRecognizerTests: XCTestCase {
     voiceInputRecognizer.transcribe()
     
     // Then
-    try await Task.sleep(for: 1)
+    try await Task.sleep(for: 2)
     XCTAssertNotNil(voiceInputRecognizer.request)
     expectation.fulfill()
   }
@@ -38,7 +38,7 @@ final class VoiceInputRecognizerTests: XCTestCase {
     voiceInputRecognizer.stopTranscribing()
     
     // Then
-    try await Task.sleep(for: 1)
+    try await Task.sleep(for: 2)
     XCTAssertNil(voiceInputRecognizer.request)
     expectation.fulfill()
   }

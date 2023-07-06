@@ -25,21 +25,22 @@ final class ChatViewModelTests: XCTestCase {
 
   // MARK: - Tests
 
-  func testSendMessage() async {
+  func testSendMessage() async throws {
     // Given
     let inputText = "Hello"
     let userMessage = ChatBubble(content: inputText, sender: .user)
 
     // When
     sut.sendMessage(userMessage)
+    try await Task.sleep(for: 2)
 
     // Then
-    XCTAssertEqual(sut.chatMessages.count, 1)
+    XCTAssertEqual(sut.chatMessages.count, 2)
     XCTAssertEqual(sut.chatMessages.first, userMessage)
     XCTAssertEqual(sut.inputText, .empty)
   }
 
-  func testSendEmptyMessage() async {
+  func testSendEmptyMessage() async throws {
     // Given
     let inputText: String = .empty
     let userMessage = ChatBubble(content: inputText, sender: .user)
@@ -47,13 +48,14 @@ final class ChatViewModelTests: XCTestCase {
     // When
     sut.inputText = inputText
     sut.sendMessage(userMessage)
+    try await Task.sleep(for: 2)
 
     // Then
     XCTAssertEqual(sut.chatMessages.count, .zero)
     XCTAssertEqual(sut.inputText, .empty)
   }
 
-  func testReceiveBotMessage() async {
+  func testReceiveBotMessage() async throws {
     // Given
     let inputText = "Hello"
     let chatAssistantMessage = ChatBubble(content: inputText, sender: .chatAssistant)
@@ -61,6 +63,7 @@ final class ChatViewModelTests: XCTestCase {
     // When
     sut.inputText = inputText
     sut.sendMessage(chatAssistantMessage)
+    try await Task.sleep(for: 2)
 
     // Then
     XCTAssertEqual(sut.chatMessages.last, chatAssistantMessage)
@@ -83,27 +86,29 @@ final class ChatViewModelTests: XCTestCase {
     XCTAssertFalse(sut.isLoading)
   }
 
-  func testSendMessageWithValidMessage() {
+  func testSendMessageWithValidMessage() async throws {
     // Given
     let message = ChatBubble(content: "Hello", sender: .user)
 
     // When
     sut.sendMessage(message)
+    try await Task.sleep(for: 2)
 
     // Then
     XCTAssertEqual(sut.inputText, .empty)
     XCTAssertFalse(sut.isLoading)
-    XCTAssertEqual(sut.chatMessages.count, 1)
+    XCTAssertEqual(sut.chatMessages.count, 2)
     XCTAssertEqual(sut.chatMessages.first, message)
     XCTAssertNil(sut.errorType)
   }
 
-  func testSendMessageWithInvalidMessage() {
+  func testSendMessageWithInvalidMessage() async throws  {
     // Given
     let message = ChatBubble(content: .empty, sender: .user)
 
     // When
     sut.sendMessage(message)
+    try await Task.sleep(for: 2)
 
     // Then
     XCTAssertEqual(sut.inputText, .empty)

@@ -42,8 +42,8 @@ extension ChatViewModel {
       return
     }
     Task {
-      isLoading = true
       chatMessages.append(message)
+      isLoading = true
       do {
         guard message.sender == .user else { return }
         let chatAssistantMessage = try await chatAPIManager.sendMessage()

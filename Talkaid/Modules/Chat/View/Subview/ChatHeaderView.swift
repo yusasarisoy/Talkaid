@@ -12,7 +12,7 @@ struct GreetUser: Equatable {
 struct ChatHeaderView: View {
 
   // MARK: - Properties
-  
+
   let greetUser: GreetUser
 
   // MARK: - Body

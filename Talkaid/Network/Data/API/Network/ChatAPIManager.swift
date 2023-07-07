@@ -10,7 +10,7 @@ protocol ChatAPIManagerProtocol {
 final class MockChatAPIManager {
 
   // MARK: - Properties
-  
+
   var greetUserReturnValue: GreetUser?
 }
 
@@ -22,7 +22,7 @@ extension MockChatAPIManager: ChatAPIManagerProtocol {
     let message = "Hello, how can I assist you?"
     return ChatBubble(content: message, sender: .chatAssistant)
   }
-  
+
   func greetUser(with greetUser: GreetUser) async throws -> GreetUser {
     try await Task.sleep(for: 1.5)
     let greetUser = GreetUser(

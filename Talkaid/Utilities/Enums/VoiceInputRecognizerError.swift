@@ -5,7 +5,7 @@ enum VoiceInputRecognizerError: LocalizedError {
   case recognizerCouldNotBeAuthorized
   case noPermissionForRecord
   case recognizerIsUnavailable
-  
+
   var errorDescription: String? {
     switch self {
     case .couldNotInitializeRecognizer:

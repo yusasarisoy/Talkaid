@@ -102,7 +102,7 @@ final class ChatViewModelTests: XCTestCase {
     XCTAssertNil(sut.errorType)
   }
 
-  func testSendMessageWithInvalidMessage() async throws  {
+  func testSendMessageWithInvalidMessage() async throws {
     // Given
     let message = ChatBubble(content: .empty, sender: .user)
 

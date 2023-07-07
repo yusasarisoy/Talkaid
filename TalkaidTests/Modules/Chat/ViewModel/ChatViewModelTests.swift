@@ -31,7 +31,7 @@ final class ChatViewModelTests: XCTestCase {
     let userMessage = ChatBubble(content: inputText, sender: .user)
 
     // When
-    sut.sendMessage(userMessage)
+    try await sut.sendMessage(userMessage)
     try await Task.sleep(for: 2)
 
     // Then
@@ -47,7 +47,7 @@ final class ChatViewModelTests: XCTestCase {
 
     // When
     sut.inputText = inputText
-    sut.sendMessage(userMessage)
+    try await sut.sendMessage(userMessage)
     try await Task.sleep(for: 2)
 
     // Then
@@ -62,7 +62,7 @@ final class ChatViewModelTests: XCTestCase {
 
     // When
     sut.inputText = inputText
-    sut.sendMessage(chatAssistantMessage)
+    try await sut.sendMessage(chatAssistantMessage)
     try await Task.sleep(for: 2)
 
     // Then
@@ -91,7 +91,7 @@ final class ChatViewModelTests: XCTestCase {
     let message = ChatBubble(content: "Hello", sender: .user)
 
     // When
-    sut.sendMessage(message)
+    try await sut.sendMessage(message)
     try await Task.sleep(for: 2)
 
     // Then
@@ -107,12 +107,11 @@ final class ChatViewModelTests: XCTestCase {
     let message = ChatBubble(content: .empty, sender: .user)
 
     // When
-    sut.sendMessage(message)
-    try await Task.sleep(for: 2)
+    try await sut.sendMessage(message)
 
     // Then
     XCTAssertEqual(sut.inputText, .empty)
-    XCTAssertFalse(sut.isLoading)
+    XCTAssertTrue(sut.isLoading)
     XCTAssertEqual(sut.chatMessages.count, .zero)
     XCTAssertEqual(sut.errorType, .emptyMessage)
   }

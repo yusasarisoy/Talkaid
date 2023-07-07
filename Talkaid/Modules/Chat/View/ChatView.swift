@@ -21,36 +21,36 @@ struct ChatView: View {
 
   var body: some View {
     ZStack {
+      VStack(spacing: 16) {
+        ChatHeaderView(greetUser: viewModel.greetUser)
+          .opacity((viewModel.greetUser.title?.isEmpty).orFalse ? 0 : 1)
+        ChatDateView()
+        ChatListView(chatMessages: $viewModel.chatMessages)
+      }
+      .padding(.horizontal, 16)
+      ChatInputView(
+        inputText: $viewModel.inputText,
+        showVoiceInput: $viewModel.showVoiceInput,
+        sendMessage: {
+          Task {
+            try await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
+          }
+        },
+        sendVoiceInput: {
+          if !viewModel.showVoiceInput {
+            voiceInputRecognizer.transcribe()
+          } else {
+            voiceInputRecognizer.stopTranscribing()
+            Task {
+              try await viewModel.sendMessage(.init(content: voiceInputRecognizer.transcript, sender: .user))
+            }
+          }
+          viewModel.showVoiceInput.toggle()
+        }
+      )
+      .opacity(viewModel.isLoading ? 0 : 1)
       if viewModel.isLoading {
         ChatCircleAnimationView()
-      } else {
-        VStack(spacing: 16) {
-          ChatHeaderView(greetUser: viewModel.greetUser)
-            .opacity((viewModel.greetUser.title?.isEmpty).orFalse ? 0 : 1)
-          ChatDateView()
-          ChatListView(chatMessages: $viewModel.chatMessages)
-        }
-        .padding(.horizontal, 16)
-        ChatInputView(
-          inputText: $viewModel.inputText,
-          showVoiceInput: $viewModel.showVoiceInput,
-          sendMessage: {
-            Task {
-              try await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
-            }
-          },
-          sendVoiceInput: {
-            if !viewModel.showVoiceInput {
-              voiceInputRecognizer.transcribe()
-            } else {
-              voiceInputRecognizer.stopTranscribing()
-              Task {
-                try await viewModel.sendMessage(.init(content: voiceInputRecognizer.transcript, sender: .user))
-              }
-            }
-            viewModel.showVoiceInput.toggle()
-          }
-        )
       }
     }
     .task {

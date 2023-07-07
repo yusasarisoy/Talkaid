@@ -25,9 +25,19 @@ struct ChatInputView: View {
               sendButton
             }
           }
+          .padding(.horizontal, 16)
+          .padding(.vertical, 9)
+          .background(
+            Rectangle()
+              .fill(ColorTheme.themeColor.color)
+              .shadow(
+                color: ColorTheme.accentColor.color.opacity(0.08),
+                radius: 4,
+                x: .zero,
+                y: -8
+              )
+          )
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 9)
         if showVoiceInput {
           voiceInputView
             .frame(height: geometry.size.height / 3)

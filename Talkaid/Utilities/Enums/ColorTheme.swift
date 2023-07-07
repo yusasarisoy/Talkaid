@@ -11,6 +11,7 @@ enum ColorTheme {
   case mainBlue
   case micColor
   case purple
+  case themeColor
   case vividBlue
 
   var color: Color {
@@ -35,6 +36,8 @@ enum ColorTheme {
       return Color("MicColor")
     case .purple:
       return Color("Purple")
+    case .themeColor:
+      return Color("ThemeColor")
     case .vividBlue:
       return Color("VividBlue")
     }

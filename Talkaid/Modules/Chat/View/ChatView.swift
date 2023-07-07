@@ -16,34 +16,41 @@ struct ChatView: View {
     self.viewModel = viewModel
     self.voiceInputRecognizer = voiceInputRecognizer
   }
-  
+
   // MARK: - Body
 
   var body: some View {
     ZStack {
-      VStack(spacing: 16) {
-        ChatHeaderView(greetUser: viewModel.greetUser)
-          .opacity((viewModel.greetUser.title?.isEmpty).orFalse ? 0 : 1)
-        ChatDateView()
-        ChatListView(chatMessages: $viewModel.chatMessages)
-      }
-      .padding(.horizontal, 16)
-      ChatInputView(
-        inputText: $viewModel.inputText,
-        showVoiceInput: $viewModel.showVoiceInput,
-        sendMessage: {
-          viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
+      if viewModel.isLoading {
+        ChatCircleAnimationView()
+      } else {
+        VStack(spacing: 16) {
+          ChatHeaderView(greetUser: viewModel.greetUser)
+            .opacity((viewModel.greetUser.title?.isEmpty).orFalse ? 0 : 1)
+          ChatDateView()
+          ChatListView(chatMessages: $viewModel.chatMessages)
         }
-      ) {
-        if !viewModel.showVoiceInput {
-          voiceInputRecognizer.transcribe()
-        } else {
-          voiceInputRecognizer.stopTranscribing()
-          viewModel.sendMessage(.init(content: voiceInputRecognizer.transcript, sender: .user))
+        .padding(.horizontal, 16)
+        ChatInputView(
+          inputText: $viewModel.inputText,
+          showVoiceInput: $viewModel.showVoiceInput,
+          sendMessage: {
+            Task {
+              try await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
+            }
+          }
+        ) {
+          if !viewModel.showVoiceInput {
+            voiceInputRecognizer.transcribe()
+          } else {
+            voiceInputRecognizer.stopTranscribing()
+            Task {
+              try await viewModel.sendMessage(.init(content: voiceInputRecognizer.transcript, sender: .user))
+            }
+          }
+          viewModel.showVoiceInput.toggle()
         }
-        viewModel.showVoiceInput.toggle()
       }
-      ChatCircleAnimationView(animate: $viewModel.isLoading)
     }
     .task {
       do {

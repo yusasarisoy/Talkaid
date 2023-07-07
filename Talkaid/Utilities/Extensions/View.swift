@@ -22,4 +22,8 @@ extension View {
       Text(error.recoverySuggestion.orEmpty)
     }
   }
+
+  func scaleFadeAnimation() -> some View {
+    modifier(ScaleFadeAnimationModifier())
+  }
 }

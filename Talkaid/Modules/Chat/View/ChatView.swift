@@ -38,18 +38,19 @@ struct ChatView: View {
             Task {
               try await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
             }
-          }
-        ) {
-          if !viewModel.showVoiceInput {
-            voiceInputRecognizer.transcribe()
-          } else {
-            voiceInputRecognizer.stopTranscribing()
-            Task {
-              try await viewModel.sendMessage(.init(content: voiceInputRecognizer.transcript, sender: .user))
+          },
+          sendVoiceInput: {
+            if !viewModel.showVoiceInput {
+              voiceInputRecognizer.transcribe()
+            } else {
+              voiceInputRecognizer.stopTranscribing()
+              Task {
+                try await viewModel.sendMessage(.init(content: voiceInputRecognizer.transcript, sender: .user))
+              }
             }
+            viewModel.showVoiceInput.toggle()
           }
-          viewModel.showVoiceInput.toggle()
-        }
+        )
       }
     }
     .task {

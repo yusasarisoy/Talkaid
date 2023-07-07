@@ -7,6 +7,7 @@ struct ChatInputView: View {
   @State private var voiceInputRecordingTime = Date().addingTimeInterval(.zero)
   @Binding var inputText: String
   @Binding var showVoiceInput: Bool
+  @Binding var shouldHideVoiceInput: Bool
 
   var sendMessage: () -> Void
   var sendVoiceInput: () -> Void
@@ -49,7 +50,7 @@ private extension ChatInputView {
         Image(systemName: IconTheme.mic)
           .font(.body.weight(.regular))
           .foregroundColor(ColorTheme.micColor.color)
-          .opacity(inputText.isEmpty ? 1 : 0)
+          .opacity(!shouldHideVoiceInput && inputText.isEmpty ? 1 : 0)
           .onTapGesture {
             sendVoiceInput()
             voiceInputRecordingTime = Date().addingTimeInterval(.zero)
@@ -126,6 +127,7 @@ struct ChatInputView_Previews: PreviewProvider {
     ChatInputView(
       inputText: .constant(.empty),
       showVoiceInput: .constant(true),
+      shouldHideVoiceInput: .constant(false),
       sendMessage: { },
       sendVoiceInput: { }
     )

@@ -31,6 +31,7 @@ struct ChatView: View {
       ChatInputView(
         inputText: $viewModel.inputText,
         showVoiceInput: $viewModel.showVoiceInput,
+        shouldHideVoiceInput: $voiceInputRecognizer.hasNotAuthorized,
         sendMessage: {
           Task {
             try await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
@@ -55,6 +56,7 @@ struct ChatView: View {
     }
     .task {
       do {
+        try await voiceInputRecognizer.checkAnyErrorForSpeechRecognizer()
         try await viewModel.greetTheUser()
       } catch {
         viewModel.errorType = .unableToConnectToChatAssistant

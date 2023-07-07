@@ -5,6 +5,7 @@ final class VoiceInputRecognizer: ObservableObject {
   // MARK: - Properties
 
   @Published var transcript: String = .empty
+  @Published var hasNotAuthorized: Bool = false
 
   private var audioEngine: AVAudioEngine?
   var request: SFSpeechAudioBufferRecognitionRequest?
@@ -15,7 +16,6 @@ final class VoiceInputRecognizer: ObservableObject {
 
   init(recognizer: SFSpeechRecognizer? = SFSpeechRecognizer()) {
     self.recognizer = recognizer
-    checkAnyErrorForSpeechRecognizer()
   }
 
   // MARK: - Deinitialization
@@ -28,6 +28,27 @@ final class VoiceInputRecognizer: ObservableObject {
 // MARK: - Internal Helper Methods
 
 extension VoiceInputRecognizer {
+  func checkAnyErrorForSpeechRecognizer() async throws {
+    do {
+      guard recognizer != .none else {
+        throw VoiceInputRecognizerError.couldNotInitializeRecognizer
+      }
+
+      guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
+        throw VoiceInputRecognizerError.recognizerCouldNotBeAuthorized
+      }
+
+      guard await AVAudioSession.sharedInstance().hasPermissionToRecord() else {
+        throw VoiceInputRecognizerError.noPermissionForRecord
+      }
+    } catch {
+      Task { @MainActor in
+        hasNotAuthorized = true
+        speak(error.localizedDescription)
+      }
+    }
+  }
+
   func transcribe() {
     Task(priority: .background) { [weak self] in
       guard
@@ -72,26 +93,6 @@ extension VoiceInputRecognizer {
 // MARK: - Private Helper Methods
 
 extension VoiceInputRecognizer {
-  private func checkAnyErrorForSpeechRecognizer() {
-    Task(priority: .background) {
-      do {
-        guard recognizer != .none else {
-          throw VoiceInputRecognizerError.couldNotInitializeRecognizer
-        }
-
-        guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
-          throw VoiceInputRecognizerError.recognizerCouldNotBeAuthorized
-        }
-
-        guard await AVAudioSession.sharedInstance().hasPermissionToRecord() else {
-          throw VoiceInputRecognizerError.noPermissionForRecord
-        }
-      } catch {
-        speak(error.localizedDescription)
-      }
-    }
-  }
-
   private func resetVoiceInputRecognizer() {
     task?.cancel()
     audioEngine?.stop()
@@ -127,6 +128,8 @@ extension VoiceInputRecognizer {
   }
 
   private func speak(_ message: String) {
-    transcript = message
+    Task { @MainActor in
+      transcript = message
+    }
   }
 }

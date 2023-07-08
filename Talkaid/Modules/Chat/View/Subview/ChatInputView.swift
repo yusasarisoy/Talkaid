@@ -51,11 +51,18 @@ struct ChatInputView: View {
   }
 }
 
+// MARK: - Components
+
 private extension ChatInputView {
   var inputTextField: some View {
     TextField("✨ Ask me anything", text: $inputText)
+      .onTapGesture {
+        timer.upstream.connect().cancel()
+        showVoiceInput = false
+        voiceInputRecordingTime = Date().addingTimeInterval(.zero)
+      }
       .onSubmit {
-        sendMessage()
+        sendTheMessage()
       }
       .focused($inputFieldIsFocused)
       .font(.custom(FontTheme.sfProText, size: 17).weight(.bold))
@@ -83,7 +90,7 @@ private extension ChatInputView {
   }
 
   var sendButton: some View {
-    Button(action: sendMessage) {
+    Button(action: sendTheMessage) {
       ZStack {
         Rectangle()
           .foregroundColor(.clear)
@@ -105,12 +112,6 @@ private extension ChatInputView {
           .font(.body.weight(.bold))
       }
     }
-  }
-
-  var averagePowerLimit: CGFloat {
-    guard averagePower > 0 else { return 0 }
-    guard averagePower < 50 else { return 50 }
-    return averagePower
   }
 
   var voiceInputView: some View {
@@ -144,6 +145,19 @@ private extension ChatInputView {
     .onReceive(timer) { _ in
       averagePower -= 10
     }
+  }
+}
+
+extension ChatInputView {
+  private var averagePowerLimit: CGFloat {
+    guard averagePower > 0 else { return 0 }
+    guard averagePower < 50 else { return 50 }
+    return averagePower
+  }
+
+  private func sendTheMessage() {
+    inputFieldIsFocused = false
+    sendMessage()
   }
 }
 

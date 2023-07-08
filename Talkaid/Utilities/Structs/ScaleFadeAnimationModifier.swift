@@ -12,6 +12,9 @@ struct ScaleFadeAnimationModifier: ViewModifier {
     content
       .scaleEffect(animate ? 1.2 : 1)
       .opacity(animate ? 0.2 : 1)
-      .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true), value: animate)
+      .animation(.easeInOut.repeatForever(autoreverses: true), value: animate)
+      .onAppear {
+        animate = true
+      }
   }
 }

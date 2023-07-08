@@ -32,6 +32,7 @@ struct ChatView: View {
         inputText: $viewModel.inputText,
         showVoiceInput: $viewModel.showVoiceInput,
         shouldHideVoiceInput: $voiceInputRecognizer.hasNotAuthorized,
+        averagePower: $voiceInputRecognizer.averagePower,
         sendMessage: {
           Task {
             try await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))

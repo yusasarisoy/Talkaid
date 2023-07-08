@@ -8,6 +8,9 @@ struct ChatInputView: View {
   @Binding var inputText: String
   @Binding var showVoiceInput: Bool
   @Binding var shouldHideVoiceInput: Bool
+  @Binding var averagePower: CGFloat
+
+  private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
   var sendMessage: () -> Void
   var sendVoiceInput: () -> Void
@@ -101,14 +104,20 @@ private extension ChatInputView {
     }
   }
 
+  var averagePowerLimit: CGFloat {
+    guard averagePower > 0 else { return 0 }
+    guard averagePower < 50 else { return 50 }
+    return averagePower
+  }
+
   var voiceInputView: some View {
     VStack {
       ZStack {
         Rectangle()
           .foregroundColor(.clear)
-          .frame(width: 170, height: 170)
+          .frame(size: averagePowerLimit + 170)
           .background(.black.opacity(0.1))
-          .cornerRadius(170)
+          .cornerRadius(averagePowerLimit + 170)
         Text("🎤 Tap to stop recording")
           .font(.custom(FontTheme.sfProText, size: 17))
           .foregroundColor(.white)
@@ -126,21 +135,27 @@ private extension ChatInputView {
     }
     .background(ColorTheme.mainBlue.color)
     .onTapGesture {
+      timer.upstream.connect().cancel()
       sendVoiceInput()
+    }
+    .onReceive(timer) { _ in
+      averagePower -= 10
     }
   }
 }
 
 // MARK: - Preview
+
 struct ChatInputView_Previews: PreviewProvider {
   static var previews: some View {
     ChatInputView(
       inputText: .constant(.empty),
       showVoiceInput: .constant(true),
       shouldHideVoiceInput: .constant(false),
+      averagePower: .constant(170),
       sendMessage: { },
       sendVoiceInput: { }
     )
-      .previewLayout(.sizeThatFits)
+    .previewLayout(.sizeThatFits)
   }
 }

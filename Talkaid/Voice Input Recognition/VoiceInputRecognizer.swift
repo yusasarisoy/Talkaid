@@ -6,11 +6,19 @@ final class VoiceInputRecognizer: ObservableObject {
 
   @Published var transcript: String = .empty
   @Published var hasNotAuthorized: Bool = false
-
+  @Published var averagePower: CGFloat = .zero {
+    didSet {
+      holderDecibel = averagePower
+    }
+  }
+  private var timer: Timer?
+  private var audioPlayer: AVAudioPlayer?
   private var audioEngine: AVAudioEngine?
-  var request: SFSpeechAudioBufferRecognitionRequest?
+  private var audioRecorder: AVAudioRecorder?
   private var task: SFSpeechRecognitionTask?
   private var recognizer: SFSpeechRecognizer?
+  private var holderDecibel: CGFloat = .zero
+  var request: SFSpeechAudioBufferRecognitionRequest?
 
   // MARK: - Initialization
 
@@ -61,19 +69,29 @@ extension VoiceInputRecognizer {
       }
 
       do {
-        let (audioEngine, request) = try prepareAudioEngine()
+        let ((audioRecorder, audioEngine), request) = try prepareAudioEngine()
+        self.audioRecorder = audioRecorder
         self.audioEngine = audioEngine
         self.request = request
+        setUpAudioCapture()
 
         self.task = recognizer.recognitionTask(with: request) { result, error in
           guard let result else {
             let receivedFinalResult = (result?.isFinal).orFalse
             let receivedError = error != nil
-
+            self.averagePower = .zero
             guard !receivedFinalResult, !receivedError else { return }
             audioEngine.stop()
             audioEngine.inputNode.removeTap(onBus: .zero)
             return
+          }
+
+          self.timer = .scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] _ in
+            guard let self else { return }
+            self.audioRecorder?.updateMeters()
+            let averagePower = audioRecorder?.averagePower(forChannel: .zero) ?? .zero
+            let difference = 100 + CGFloat(averagePower)
+            self.averagePower = difference
           }
 
           self.speak(result.bestTranscription.formattedString)
@@ -93,23 +111,63 @@ extension VoiceInputRecognizer {
 // MARK: - Private Helper Methods
 
 extension VoiceInputRecognizer {
+  private func setUpAudioCapture() {
+    let recordingSession = AVAudioSession.sharedInstance()
+
+    do {
+      try recordingSession.setCategory(.playAndRecord)
+      try recordingSession.setActive(true)
+      try recordingSession.setMode(.measurement)
+
+    } catch {
+      speak(error.localizedDescription)
+    }
+  }
+
+  private func captureAudio() -> AVAudioRecorder? {
+    let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    guard let audioFilename = documentPath?.appendingPathComponent("record.caf") else { return .none }
+    let settings: [String: Any] = [
+      AVFormatIDKey: kAudioFormatAppleIMA4 as AnyObject,
+      AVSampleRateKey: 44100,
+      AVNumberOfChannelsKey: 1,
+      AVLinearPCMBitDepthKey: 32,
+      AVLinearPCMIsBigEndianKey: false,
+      AVLinearPCMIsFloatKey: false,
+      AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue
+    ]
+
+    do {
+      let audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+      audioRecorder.prepareToRecord()
+      audioRecorder.isMeteringEnabled = true
+      audioRecorder.record()
+      self.audioRecorder = audioRecorder
+    } catch {
+      speak(error.localizedDescription)
+    }
+
+    return audioRecorder
+  }
+
   private func resetVoiceInputRecognizer() {
     task?.cancel()
     audioEngine?.stop()
     audioEngine = .none
     request = .none
     task = .none
+    timer?.invalidate()
   }
 
-  private func prepareAudioEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest) {
+  private func prepareAudioEngine() throws -> (
+    (audioRecorder: AVAudioRecorder?, audioEngine: AVAudioEngine),
+    SFSpeechAudioBufferRecognitionRequest
+  ) {
     let audioEngine = AVAudioEngine()
 
     let request = SFSpeechAudioBufferRecognitionRequest()
     request.shouldReportPartialResults = true
 
-    let audioSession = AVAudioSession.sharedInstance()
-    try audioSession.setCategory(.record, mode: .measurement)
-    try audioSession.setActive(true)
     let inputNode = audioEngine.inputNode
 
     let recordingFormat = inputNode.outputFormat(forBus: .zero)
@@ -124,7 +182,7 @@ extension VoiceInputRecognizer {
     audioEngine.prepare()
     try audioEngine.start()
 
-    return (audioEngine, request)
+    return ((captureAudio(), audioEngine), request)
   }
 
   private func speak(_ message: String) {

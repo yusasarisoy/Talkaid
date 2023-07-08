@@ -4,6 +4,7 @@ struct ChatInputView: View {
 
   // MARK: - Properties
 
+  @FocusState private var inputFieldIsFocused: Bool
   @State private var voiceInputRecordingTime = Date().addingTimeInterval(.zero)
   @Binding var inputText: String
   @Binding var showVoiceInput: Bool
@@ -56,6 +57,7 @@ private extension ChatInputView {
       .onSubmit {
         sendMessage()
       }
+      .focused($inputFieldIsFocused)
       .font(.custom(FontTheme.sfProText, size: 17).weight(.bold))
       .autocorrectionDisabled(true)
       .foregroundColor(ColorTheme.micColor.color)
@@ -65,6 +67,7 @@ private extension ChatInputView {
           .foregroundColor(ColorTheme.micColor.color)
           .opacity(!shouldHideVoiceInput && inputText.isEmpty ? 1 : 0)
           .onTapGesture {
+            inputFieldIsFocused = false
             sendVoiceInput()
             voiceInputRecordingTime = Date().addingTimeInterval(.zero)
           },

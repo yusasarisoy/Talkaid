@@ -22,9 +22,11 @@ struct ChatView: View {
   var body: some View {
     ZStack {
       VStack(spacing: 16) {
-        ChatHeaderView(greetUser: viewModel.greetUser)
-          .opacity((viewModel.greetUser.title?.isEmpty).orFalse ? 0 : 1)
-        ChatDateView()
+        VStack(spacing: 16) {
+          ChatHeaderView(greetUser: viewModel.greetUser)
+          ChatDateView()
+        }
+        .opacity((viewModel.greetUser.title?.isEmpty).orFalse ? 0 : 1)
         ChatListView(chatMessages: $viewModel.chatMessages)
       }
       .padding(.horizontal, 16)

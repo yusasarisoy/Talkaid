@@ -52,6 +52,7 @@ struct ChatView: View {
           viewModel.showVoiceInput.toggle()
         }
       )
+      .ignoresSafeArea(.all, edges: [.horizontal])
       .opacity(viewModel.isLoading ? 0 : 1)
       if viewModel.isLoading {
         ChatCircleAnimationView()

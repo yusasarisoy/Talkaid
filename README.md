@@ -87,3 +87,4 @@ The project includes a comprehensive suite of unit tests to ensure the quality a
 - Provide options for users to personalize their app experience, such as choosing themes, customizing layouts, or setting preferences.
 - Add analytics tools to gather data on user behavior, usage patterns, and performance metrics. This can help make useful decisions for future improvements.
 - Improve app security to protect user data and ensure secure communication with the backend services. Implement best practices like encryption, secure storage, and secure network connections.
+- Enhance the app by using a persistence framework, such as [Core Data](https://developer.apple.com/documentation/coredata), for storing previous chats. This feature will ensure a persistent chat history across app launches, enabling users to seamlessly access their past conversations.

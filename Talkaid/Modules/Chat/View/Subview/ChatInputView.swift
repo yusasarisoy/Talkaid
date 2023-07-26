@@ -115,35 +115,37 @@ private extension ChatInputView {
   }
 
   var voiceInputView: some View {
-    VStack {
-      ZStack {
-        Rectangle()
-          .foregroundColor(.clear)
-          .frame(size: averagePowerLimit + 170)
-          .background(.black.opacity(0.1))
-          .cornerRadius(averagePowerLimit + 170)
-        Text("🎤 Tap to stop recording")
-          .font(.custom(FontTheme.sfProText, size: 17))
-          .foregroundColor(.white)
-        VStack {
-          HStack {
-            Text(voiceInputRecordingTime, style: .timer)
-              .font(.custom(FontTheme.sfProText, size: 17))
-              .foregroundColor(.white)
-              .padding([.leading, .top], 16)
+    GeometryReader { geometry in
+      VStack {
+        ZStack {
+          Rectangle()
+            .foregroundColor(.clear)
+            .background(.black.opacity(0.1))
+            .frame(size: min(geometry.size.height, max(0, averagePowerLimit) + 147))
+            .cornerRadius(min(geometry.size.height, max(0, averagePowerLimit) + 147))
+          Text("🎤 Tap to stop recording")
+            .font(.custom(FontTheme.sfProText, size: 17))
+            .foregroundColor(.white)
+          VStack {
+            HStack {
+              Text(voiceInputRecordingTime, style: .timer)
+                .font(.custom(FontTheme.sfProText, size: 17))
+                .foregroundColor(.white)
+                .padding([.leading, .top], 16)
+              Spacer()
+            }
             Spacer()
           }
-          Spacer()
         }
       }
-    }
-    .background(ColorTheme.mainBlue.color)
-    .onTapGesture {
-      timer.upstream.connect().cancel()
-      sendVoiceInput()
-    }
-    .onReceive(timer) { _ in
-      averagePower -= 10
+      .background(ColorTheme.mainBlue.color)
+      .onTapGesture {
+        timer.upstream.connect().cancel()
+        sendVoiceInput()
+      }
+      .onReceive(timer) { _ in
+        averagePower -= 10
+      }
     }
   }
 }

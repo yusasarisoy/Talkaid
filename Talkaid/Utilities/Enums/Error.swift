@@ -7,6 +7,7 @@ enum Error: LocalizedError {
   case emptyMessage
   case unableToConnectToChatAssistant
 
+  /// Title
   var errorDescription: String? {
     switch self {
     case .emptyMessage:
@@ -16,6 +17,7 @@ enum Error: LocalizedError {
     }
   }
 
+  /// Subtitle
   var recoverySuggestion: String? {
     switch self {
     case .emptyMessage:

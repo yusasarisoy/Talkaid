@@ -42,16 +42,14 @@ extension ChatViewModel {
       return
     }
     isLoading = true
-//    Task {
-      chatMessages.append(message)
-      do {
-        guard message.sender == .user else { return }
-        let chatAssistantMessage = try await chatAPIManager.sendMessage()
-        chatMessages.append(chatAssistantMessage)
-      } catch {
-        errorType = .unableToConnectToChatAssistant
-      }
-//    }
+    chatMessages.append(message)
+    do {
+      guard message.sender == .user else { return }
+      let chatAssistantMessage = try await chatAPIManager.sendMessage()
+      chatMessages.append(chatAssistantMessage)
+    } catch {
+      errorType = .unableToConnectToChatAssistant
+    }
     isLoading = false
   }
 }

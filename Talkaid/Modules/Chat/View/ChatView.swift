@@ -35,22 +35,8 @@ struct ChatView: View {
         showVoiceInput: $viewModel.showVoiceInput,
         shouldHideVoiceInput: $voiceInputRecognizer.hasNotAuthorized,
         averagePower: $voiceInputRecognizer.averagePower,
-        sendMessage: {
-          Task {
-            try await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
-          }
-        },
-        sendVoiceInput: {
-          if !viewModel.showVoiceInput {
-            voiceInputRecognizer.transcribe()
-          } else {
-            voiceInputRecognizer.stopTranscribing()
-            Task {
-              try await viewModel.sendMessage(.init(content: voiceInputRecognizer.transcript, sender: .user))
-            }
-          }
-          viewModel.showVoiceInput.toggle()
-        }
+        sendMessage: sendMessage,
+        sendVoiceInput: sendVoiceInput
       )
       .ignoresSafeArea(.all, edges: [.horizontal])
       .opacity(viewModel.isLoading ? 0 : 1)
@@ -60,13 +46,35 @@ struct ChatView: View {
     }
     .task {
       do {
-        try await voiceInputRecognizer.checkAnyErrorForSpeechRecognizer()
         try await viewModel.greetTheUser()
+        try await voiceInputRecognizer.checkAnyErrorForSpeechRecognizer()
       } catch {
         viewModel.errorType = .unableToConnectToChatAssistant
       }
     }
     .showAlert(error: $viewModel.errorType)
+  }
+}
+
+// MARK: - Private Helper Methods
+
+extension ChatView {
+  private func sendMessage() {
+    Task {
+      try await viewModel.sendMessage(.init(content: viewModel.inputText, sender: .user))
+    }
+  }
+
+  private func sendVoiceInput() {
+    if !viewModel.showVoiceInput {
+      voiceInputRecognizer.transcribe()
+    } else {
+      voiceInputRecognizer.stopTranscribing()
+      Task {
+        try await viewModel.sendMessage(.init(content: voiceInputRecognizer.transcript, sender: .user))
+      }
+    }
+    viewModel.showVoiceInput.toggle()
   }
 }
 

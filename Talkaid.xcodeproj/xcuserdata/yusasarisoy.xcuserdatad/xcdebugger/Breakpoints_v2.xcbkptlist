@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "13BDBD27-6DAC-4286-9C06-8A8701D099D7"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DAEF942D-5E1A-41DC-B0C4-011D15B3EB2A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Talkaid/Network/Data/API/Network/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "perform(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EB3B8C5-E417-4515-A968-841EA3E61E08"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Talkaid/Network/Data/API/Network/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "perform(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2EB3B8C5-E417-4515-A968-841EA3E61E08 - 7b4ba2c634fb8528"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Talkaid.APIManager.perform(Talkaid.RequestProtocol) async throws -&gt; Foundation.Data"
+                  moduleName = "Talkaid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusasarisoy/Documents/Coding%20Challenges/Tappz/Talkaid/Talkaid/Network/Data/API/Network/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "2EB3B8C5-E417-4515-A968-841EA3E61E08 - 386a2985be118edb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for Talkaid.APIManager.perform(Talkaid.RequestProtocol) async throws -&gt; Foundation.Data"
+                  moduleName = "Talkaid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusasarisoy/Documents/Coding%20Challenges/Tappz/Talkaid/Talkaid/Network/Data/API/Network/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "2EB3B8C5-E417-4515-A968-841EA3E61E08 - 3ca1d0ca9ac2c12a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Talkaid.APIManager.perform(Talkaid.RequestProtocol) async throws -&gt; Foundation.Data"
+                  moduleName = "Talkaid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusasarisoy/Documents/Coding%20Challenges/Tappz/Talkaid/Talkaid/Network/Data/API/Network/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "2EB3B8C5-E417-4515-A968-841EA3E61E08 - 9e32e9c8d731632b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Talkaid.APIManager.perform(Talkaid.RequestProtocol) async throws -&gt; Foundation.Data"
+                  moduleName = "Talkaid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusasarisoy/Documents/Coding%20Challenges/Tappz/Talkaid/Talkaid/Network/Data/API/Network/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F23B5F38-B978-43F6-A5F4-AD1D46DD9567"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Talkaid/Network/Data/API/Network/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "perform(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0969C414-DFD0-46F0-9D28-C8EF5ED5F58D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Talkaid/Modules/Chat/Service/FetchChatService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "fetchCompletions(prompt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D90771A0-BF84-4247-A47F-419AEFFD51B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Talkaid/Modules/Chat/Service/FetchChatService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "fetchCompletions(prompt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D90771A0-BF84-4247-A47F-419AEFFD51B5 - 325c4e3a3829e32b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Talkaid.FetchChatService.fetchCompletions(prompt: Swift.String) async -&gt; Swift.Optional&lt;Talkaid.Chat&gt;"
+                  moduleName = "Talkaid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusasarisoy/Documents/Coding%20Challenges/Tappz/Talkaid/Talkaid/Modules/Chat/Service/FetchChatService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "D90771A0-BF84-4247-A47F-419AEFFD51B5 - ba328a1c1e641a34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for Talkaid.FetchChatService.fetchCompletions(prompt: Swift.String) async -&gt; Swift.Optional&lt;Talkaid.Chat&gt;"
+                  moduleName = "Talkaid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusasarisoy/Documents/Coding%20Challenges/Tappz/Talkaid/Talkaid/Modules/Chat/Service/FetchChatService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "D90771A0-BF84-4247-A47F-419AEFFD51B5 - 7a91e792c982ff25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Talkaid.FetchChatService.fetchCompletions(prompt: Swift.String) async -&gt; Swift.Optional&lt;Talkaid.Chat&gt;"
+                  moduleName = "Talkaid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusasarisoy/Documents/Coding%20Challenges/Tappz/Talkaid/Talkaid/Modules/Chat/Service/FetchChatService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "D90771A0-BF84-4247-A47F-419AEFFD51B5 - 1ee8b3def6b67d24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Talkaid.FetchChatService.fetchCompletions(prompt: Swift.String) async -&gt; Swift.Optional&lt;Talkaid.Chat&gt;"
+                  moduleName = "Talkaid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusasarisoy/Documents/Coding%20Challenges/Tappz/Talkaid/Talkaid/Modules/Chat/Service/FetchChatService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2D4C7DFF-2BDA-4EA5-B7BA-ED8A25347B61"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Talkaid/Network/Data/API/Request/RequestProtocol.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "createURLRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF37CAAB-9D00-49F2-AF89-00B7BA2F56CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Talkaid/Network/Data/API/Request/Chat/ChatRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "params"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

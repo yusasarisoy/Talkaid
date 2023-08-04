@@ -14,12 +14,12 @@
 		4412FEB12A5071D9007DEA72 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB02A5071D9007DEA72 /* ChatHeaderView.swift */; };
 		4412FEB62A507269007DEA72 /* ChatDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB52A507269007DEA72 /* ChatDayView.swift */; };
 		4412FEB92A5072BB007DEA72 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4412FEB82A5072BB007DEA72 /* View.swift */; };
+		441C0E842A7D9EA2003B83FA /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441C0E832A7D9EA2003B83FA /* Chat.swift */; };
 		444204DE2A56093500DD381F /* VoiceInputRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204DD2A56093500DD381F /* VoiceInputRecognizer.swift */; };
 		444204E02A56097500DD381F /* VoiceInputRecognizerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204DF2A56097500DD381F /* VoiceInputRecognizerError.swift */; };
 		444204E22A560BCE00DD381F /* OptionalBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204E12A560BCE00DD381F /* OptionalBool.swift */; };
 		444204E42A560CE200DD381F /* SFSpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204E32A560CE200DD381F /* SFSpeechRecognizer.swift */; };
 		444204E62A560CED00DD381F /* AVAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444204E52A560CED00DD381F /* AVAudioSession.swift */; };
-		445BEF072A5220C7001C86F2 /* ChatAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */; };
 		445BEF092A522168001C86F2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BEF082A522168001C86F2 /* Task.swift */; };
 		4460F27E2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4460F27D2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift */; };
 		44683EA42A54952100EBB668 /* ChatViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44683EA32A54952100EBB668 /* ChatViewModelTests.swift */; };
@@ -32,6 +32,17 @@
 		449025552A51943E003C79ED /* OptionalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449025542A51943E003C79ED /* OptionalString.swift */; };
 		449025592A5195AC003C79ED /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449025582A5195AC003C79ED /* ChatListView.swift */; };
 		4490255C2A519730003C79ED /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4490255B2A519730003C79ED /* ChatViewModel.swift */; };
+		44A623B82A76E5AF00C2165A /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623B72A76E5AF00C2165A /* APIConstants.swift */; };
+		44A623BA2A76E5DE00C2165A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623B92A76E5DE00C2165A /* APIManager.swift */; };
+		44A623BC2A76E5EF00C2165A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623BB2A76E5EF00C2165A /* NetworkError.swift */; };
+		44A623BE2A76E5FB00C2165A /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623BD2A76E5FB00C2165A /* RequestManager.swift */; };
+		44A623C12A76E61800C2165A /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623C02A76E61800C2165A /* DataParser.swift */; };
+		44A623C42A76E63200C2165A /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623C32A76E63200C2165A /* RequestType.swift */; };
+		44A623C62A76E63900C2165A /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623C52A76E63900C2165A /* RequestProtocol.swift */; };
+		44A623C92A76E6C300C2165A /* ChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623C82A76E6C300C2165A /* ChatRequest.swift */; };
+		44A623CC2A76E92B00C2165A /* FetchChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623CB2A76E92B00C2165A /* FetchChatService.swift */; };
+		44A623CE2A76EAFC00C2165A /* CatsFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A623CD2A76EAFC00C2165A /* CatsFetcherMock.swift */; };
+		44A623D22A76EB9100C2165A /* ChatMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 44A623D12A76EB9100C2165A /* ChatMock.json */; };
 		44B223702A50187300A52640 /* TalkaidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B2236F2A50187300A52640 /* TalkaidApp.swift */; };
 		44B223722A50187300A52640 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B223712A50187300A52640 /* ContentView.swift */; };
 		44B223742A50187400A52640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223732A50187400A52640 /* Assets.xcassets */; };
@@ -61,12 +72,12 @@
 		4412FEB02A5071D9007DEA72 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
 		4412FEB52A507269007DEA72 /* ChatDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDayView.swift; sourceTree = "<group>"; };
 		4412FEB82A5072BB007DEA72 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		441C0E832A7D9EA2003B83FA /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		444204DD2A56093500DD381F /* VoiceInputRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputRecognizer.swift; sourceTree = "<group>"; };
 		444204DF2A56097500DD381F /* VoiceInputRecognizerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputRecognizerError.swift; sourceTree = "<group>"; };
 		444204E12A560BCE00DD381F /* OptionalBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalBool.swift; sourceTree = "<group>"; };
 		444204E32A560CE200DD381F /* SFSpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSpeechRecognizer.swift; sourceTree = "<group>"; };
 		444204E52A560CED00DD381F /* AVAudioSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioSession.swift; sourceTree = "<group>"; };
-		445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPIManager.swift; sourceTree = "<group>"; };
 		445BEF082A522168001C86F2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4460F27D2A573DA400BC1D9D /* VoiceInputRecognizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputRecognizerTests.swift; sourceTree = "<group>"; };
 		44683E972A5494C000EBB668 /* TalkaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +91,17 @@
 		449025542A51943E003C79ED /* OptionalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalString.swift; sourceTree = "<group>"; };
 		449025582A5195AC003C79ED /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		4490255B2A519730003C79ED /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		44A623B72A76E5AF00C2165A /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		44A623B92A76E5DE00C2165A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		44A623BB2A76E5EF00C2165A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		44A623BD2A76E5FB00C2165A /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		44A623C02A76E61800C2165A /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		44A623C32A76E63200C2165A /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		44A623C52A76E63900C2165A /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		44A623C82A76E6C300C2165A /* ChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequest.swift; sourceTree = "<group>"; };
+		44A623CB2A76E92B00C2165A /* FetchChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChatService.swift; sourceTree = "<group>"; };
+		44A623CD2A76EAFC00C2165A /* CatsFetcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsFetcherMock.swift; sourceTree = "<group>"; };
+		44A623D12A76EB9100C2165A /* ChatMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChatMock.json; sourceTree = "<group>"; };
 		44B2236C2A50187300A52640 /* Talkaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talkaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2236F2A50187300A52640 /* TalkaidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkaidApp.swift; sourceTree = "<group>"; };
 		44B223712A50187300A52640 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +166,7 @@
 		4412FEAA2A507190007DEA72 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				44A623CA2A76E92500C2165A /* Service */,
 				4412FEAB2A507192007DEA72 /* View */,
 				4490255A2A519723003C79ED /* ViewModel */,
 			);
@@ -186,6 +209,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		441C0E802A7D9E85003B83FA /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				441C0E812A7D9E93003B83FA /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		441C0E812A7D9E93003B83FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				441C0E822A7D9E9C003B83FA /* Chat */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		441C0E822A7D9E9C003B83FA /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				441C0E832A7D9EA2003B83FA /* Chat.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		444204DC2A56091400DD381F /* Voice Input Recognition */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				445BEF032A5220A0001C86F2 /* Data */,
+				441C0E802A7D9E85003B83FA /* Domain */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -213,7 +261,10 @@
 		445BEF042A5220A4001C86F2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				44A623B72A76E5AF00C2165A /* APIConstants.swift */,
 				445BEF052A5220B0001C86F2 /* Network */,
+				44A623BF2A76E60F00C2165A /* Parser */,
+				44A623C22A76E62900C2165A /* Request */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -221,7 +272,9 @@
 		445BEF052A5220B0001C86F2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				445BEF062A5220C7001C86F2 /* ChatAPIManager.swift */,
+				44A623B92A76E5DE00C2165A /* APIManager.swift */,
+				44A623BB2A76E5EF00C2165A /* NetworkError.swift */,
+				44A623BD2A76E5FB00C2165A /* RequestManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -285,6 +338,41 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		44A623BF2A76E60F00C2165A /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				44A623C02A76E61800C2165A /* DataParser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		44A623C22A76E62900C2165A /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				44A623C72A76E6B900C2165A /* Chat */,
+				44A623C52A76E63900C2165A /* RequestProtocol.swift */,
+				44A623C32A76E63200C2165A /* RequestType.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		44A623C72A76E6B900C2165A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				44A623C82A76E6C300C2165A /* ChatRequest.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		44A623CA2A76E92500C2165A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				44A623CB2A76E92B00C2165A /* FetchChatService.swift */,
+				44A623CD2A76EAFC00C2165A /* CatsFetcherMock.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		44B223632A50187300A52640 = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				44B223762A50187400A52640 /* Preview Assets.xcassets */,
+				44A623D12A76EB9100C2165A /* ChatMock.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -430,6 +519,7 @@
 				44B2237F2A501D8200A52640 /* .swiftlint.yml in Resources */,
 				44B223772A50187400A52640 /* Preview Assets.xcassets in Resources */,
 				44B223742A50187400A52640 /* Assets.xcassets in Resources */,
+				44A623D22A76EB9100C2165A /* ChatMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,18 +564,27 @@
 				44DEB4AA2A549D5500239F6A /* Error.swift in Sources */,
 				4412FE8A2A5065FB007DEA72 /* ColorTheme.swift in Sources */,
 				449025592A5195AC003C79ED /* ChatListView.swift in Sources */,
-				445BEF072A5220C7001C86F2 /* ChatAPIManager.swift in Sources */,
 				448410A42A507BCA00298F7A /* ChatInputView.swift in Sources */,
 				4412FEA22A5070BD007DEA72 /* FontTheme.swift in Sources */,
+				44A623CC2A76E92B00C2165A /* FetchChatService.swift in Sources */,
+				44A623BA2A76E5DE00C2165A /* APIManager.swift in Sources */,
 				4412FEA02A507071007DEA72 /* ImageTheme.swift in Sources */,
+				44A623B82A76E5AF00C2165A /* APIConstants.swift in Sources */,
+				44A623C42A76E63200C2165A /* RequestType.swift in Sources */,
 				449025512A5191D7003C79ED /* RoundedCorner.swift in Sources */,
+				44A623BC2A76E5EF00C2165A /* NetworkError.swift in Sources */,
+				44A623CE2A76EAFC00C2165A /* CatsFetcherMock.swift in Sources */,
 				44DEB4AC2A549D8100239F6A /* LocalizedAlertError.swift in Sources */,
 				44B223722A50187300A52640 /* ContentView.swift in Sources */,
+				44A623BE2A76E5FB00C2165A /* RequestManager.swift in Sources */,
 				4412FEAD2A50719A007DEA72 /* ChatView.swift in Sources */,
+				44A623C92A76E6C300C2165A /* ChatRequest.swift in Sources */,
+				44A623C62A76E63900C2165A /* RequestProtocol.swift in Sources */,
 				444204E42A560CE200DD381F /* SFSpeechRecognizer.swift in Sources */,
 				444204E62A560CED00DD381F /* AVAudioSession.swift in Sources */,
 				444204E02A56097500DD381F /* VoiceInputRecognizerError.swift in Sources */,
 				444204E22A560BCE00DD381F /* OptionalBool.swift in Sources */,
+				44A623C12A76E61800C2165A /* DataParser.swift in Sources */,
 				448410A82A5088C500298F7A /* IconTheme.swift in Sources */,
 				4412FEB92A5072BB007DEA72 /* View.swift in Sources */,
 				446D3DE42A5887F200A21255 /* ChatCircleAnimationView.swift in Sources */,
@@ -495,6 +594,7 @@
 				4412FEB62A507269007DEA72 /* ChatDayView.swift in Sources */,
 				4412FEB12A5071D9007DEA72 /* ChatHeaderView.swift in Sources */,
 				446D3DE22A58860000A21255 /* ScaleFadeAnimationModifier.swift in Sources */,
+				441C0E842A7D9EA2003B83FA /* Chat.swift in Sources */,
 				44DEB4AF2A54A29F00239F6A /* String.swift in Sources */,
 				444204DE2A56093500DD381F /* VoiceInputRecognizer.swift in Sources */,
 				445BEF092A522168001C86F2 /* Task.swift in Sources */,

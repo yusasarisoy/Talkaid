@@ -4,7 +4,7 @@ struct ChatView: View {
 
   // MARK: - Properties
 
-  @ObservedObject private var viewModel = ChatViewModel()
+  @ObservedObject var viewModel: ChatViewModel
   @ObservedObject private var voiceInputRecognizer = VoiceInputRecognizer()
 
   // MARK: - Initialization
@@ -84,14 +84,44 @@ struct ChatView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       ChatView(
-        viewModel: ChatViewModel(),
+        viewModel: ChatViewModel(
+          chatFetcher: ChatFetcherMock()
+        ),
         voiceInputRecognizer: VoiceInputRecognizer()
       )
       ChatView(
-        viewModel: ChatViewModel(),
+        viewModel: ChatViewModel(
+          chatFetcher: ChatFetcherMock()
+        ),
         voiceInputRecognizer: VoiceInputRecognizer()
       )
       .preferredColorScheme(.dark)
     }
   }
+}
+
+import Foundation
+
+// MARK: - Mock data
+
+extension Chat {
+  static let mock = loadChat()
+}
+
+private struct ChatMock: Decodable {
+  let chat: Chat
+}
+
+private func loadChat() -> Chat? {
+  guard
+    let url = Bundle.main.url(forResource: "ChatMock", withExtension: "json"),
+    let data = try? Data(contentsOf: url)
+  else {
+    return nil
+  }
+
+  let decoder = JSONDecoder()
+  decoder.keyDecodingStrategy = .convertFromSnakeCase
+  let jsonMock = try? decoder.decode(ChatMock.self, from: data)
+  return jsonMock?.chat
 }

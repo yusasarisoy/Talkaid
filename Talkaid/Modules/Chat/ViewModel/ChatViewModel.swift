@@ -1,5 +1,11 @@
 import Combine
 
+// MARK: - ChatFetcher
+
+protocol ChatFetcher {
+  func fetchCompletions(prompt: String) async -> Chat?
+}
+
 @MainActor
 final class ChatViewModel: ObservableObject {
 
@@ -12,12 +18,12 @@ final class ChatViewModel: ObservableObject {
   @Published var errorType: Error?
   @Published var greetUser = GreetUser(title: .empty, description: .empty)
 
-  private let chatAPIManager: ChatAPIManagerProtocol
+  private let chatFetcher: ChatFetcher
 
   // MARK: - Initialization
 
-  init(chatAPIManager: ChatAPIManagerProtocol = MockChatAPIManager()) {
-    self.chatAPIManager = chatAPIManager
+  init(chatFetcher: ChatFetcher) {
+    self.chatFetcher = chatFetcher
   }
 }
 
@@ -26,12 +32,8 @@ final class ChatViewModel: ObservableObject {
 extension ChatViewModel {
   func greetTheUser() async throws {
     isLoading = true
-    greetUser = try await chatAPIManager.greetUser(
-      with: GreetUser(
-        title: "Good morning, Samantha",
-        description: "How can I help you today?"
-      )
-    )
+    let chatAssistantMessage = await chatFetcher.fetchCompletions(prompt: "Hello Chat GPT")
+    greetUser = .init(title: "Hello!", description: chatAssistantMessage?.choices?.first?.message?.content.orEmpty)
     isLoading = false
   }
 
@@ -43,13 +45,14 @@ extension ChatViewModel {
     }
     isLoading = true
     chatMessages.append(message)
-    do {
-      guard message.sender == .user else { return }
-      let chatAssistantMessage = try await chatAPIManager.sendMessage()
-      chatMessages.append(chatAssistantMessage)
-    } catch {
-      errorType = .unableToConnectToChatAssistant
-    }
+    guard message.sender == .user else { return }
+    let chatAssistantMessage = await chatFetcher.fetchCompletions(prompt: message.content.orEmpty)
+    chatMessages.append(
+      .init(
+        content: chatAssistantMessage?.choices?.first?.message?.content.orEmpty,
+        sender: .chatAssistant
+      )
+    )
     isLoading = false
   }
 }

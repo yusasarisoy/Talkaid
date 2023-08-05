@@ -18,7 +18,6 @@ Talkaid is an interactive messaging iOS app that allows users to engage in conve
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technical Details](#technical-details)
-- [Architecture](#architecture)
 - [Features](#features)
 - [Unit Tests](#unit-tests)
 - [Possible Improvements](#possible-improvements)
@@ -46,18 +45,10 @@ Talkaid is an interactive messaging iOS app that allows users to engage in conve
 - The app is written in Swift.
 - [SwiftUI](https://developer.apple.com/xcode/swiftui/) was used as the UI framework to take advantage of declarative programming capabilities.
 - The app follows the MVVM architectural pattern for better code organization and separation of concerns.
-- The app uses networking capabilities to fetch data from the mock API.
-- The responses from AI assistant are loaded asynchronously using.
+- The app uses networking capabilities to fetch data from OpenAI API using [URLSession](https://developer.apple.com/documentation/foundation/urlsession).
+- The requests from the user and the responses from the chat assistant are loaded asynchronously with the help of async/await.
 - [SwiftLint](https://github.com/realm/SwiftLint) has used to enforce Swift style and conventions and keeping the codebase consistent.
 - The **Network** layer handles communication with the data sources. It serves as an intermediary between the data consumer and the data sources, shielding the consumer from dealing with the intricacies of manipulating the data. This layer provides flexibility in changing data sources without impacting other components.
-
-## Architecture
-
-The Chat App follows the MVVM (Model-View-ViewModel) architecture to ensure a clear separation of concerns and maintainable codebase. The architecture is structured as follows:
-
-- **View**: Responsible for displaying data and user interactions. Implemented using SwiftUI.
-- **ViewModel**: Handles the business logic and state management of the app. Contains the necessary functions and properties to interact with the View and API Manager.
-- **API Manager**: Handles the communication with the mocked API. It connects to the server through a REST API and simulates the responses. The Service class includes methods such as `sendMessage() async throws` to send a message to the server and receive a response.
 
 ## Features
 

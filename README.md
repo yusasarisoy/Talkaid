@@ -1,12 +1,12 @@
 <div align="center">
-  <img width="100" height="100" alt="Talkaid" src="https://i.ibb.co/F8gvwDC/talkaid.png">
+  <img width="100" height="100" alt="Talkaid" src="https://i.ibb.co/JsChVJ7/talkaid.png">
   </br>
   <h1><b>Talkaid</b></h1>
 </div>
 
 <div align="center">
 
-![](https://img.shields.io/badge/Editor-Xcode-informational?style=flat&logo=xcode&logoColor=white&color=a874d1) ![](https://img.shields.io/badge/Language-Swift-informational?style=flat&logo=swift&logoColor=white&color=a874d1) ![](https://img.shields.io/badge/UI%20Framework-SwiftUI-informational?style=flat&logo=swift&logoColor=white&color=a874d1)
+![](https://img.shields.io/badge/Editor-Xcode-informational?style=flat&logo=xcode&logoColor=white&color=8FBEC9) ![](https://img.shields.io/badge/Language-Swift-informational?style=flat&logo=swift&logoColor=white&color=8FBEC9) ![](https://img.shields.io/badge/UI%20Framework-SwiftUI-informational?style=flat&logo=swift&logoColor=white&color=8FBEC9)
 
 </div>
 

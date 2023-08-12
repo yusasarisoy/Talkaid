@@ -1,5 +1,3 @@
-import Foundation
-
 // MARK: - FetchChatService
 
 struct FetchChatService {

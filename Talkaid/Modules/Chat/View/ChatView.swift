@@ -99,29 +99,3 @@ struct ChatView_Previews: PreviewProvider {
     }
   }
 }
-
-import Foundation
-
-// MARK: - Mock data
-
-extension Chat {
-  static let mock = loadChat()
-}
-
-private struct ChatMock: Decodable {
-  let chat: Chat
-}
-
-private func loadChat() -> Chat? {
-  guard
-    let url = Bundle.main.url(forResource: "ChatMock", withExtension: "json"),
-    let data = try? Data(contentsOf: url)
-  else {
-    return nil
-  }
-
-  let decoder = JSONDecoder()
-  decoder.keyDecodingStrategy = .convertFromSnakeCase
-  let jsonMock = try? decoder.decode(ChatMock.self, from: data)
-  return jsonMock?.chat
-}

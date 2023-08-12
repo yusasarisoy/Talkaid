@@ -48,6 +48,7 @@
 		44B223742A50187400A52640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223732A50187400A52640 /* Assets.xcassets */; };
 		44B223772A50187400A52640 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223762A50187400A52640 /* Preview Assets.xcassets */; };
 		44B2237F2A501D8200A52640 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 44B2237E2A501D8200A52640 /* .swiftlint.yml */; };
+		44D593212A88198E001C9D02 /* ChatMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D593202A88198E001C9D02 /* ChatMock.swift */; };
 		44DEB4AA2A549D5500239F6A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEB4A92A549D5500239F6A /* Error.swift */; };
 		44DEB4AC2A549D8100239F6A /* LocalizedAlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEB4AB2A549D8100239F6A /* LocalizedAlertError.swift */; };
 		44DEB4AF2A54A29F00239F6A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEB4AE2A54A29F00239F6A /* String.swift */; };
@@ -108,6 +109,7 @@
 		44B223732A50187400A52640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B223762A50187400A52640 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44B2237E2A501D8200A52640 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		44D593202A88198E001C9D02 /* ChatMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMock.swift; sourceTree = "<group>"; };
 		44DC46FB2A54A3B30066EB6C /* Talkaid.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Talkaid.xctestplan; sourceTree = "<group>"; };
 		44DEB4A92A549D5500239F6A /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		44DEB4AB2A549D8100239F6A /* LocalizedAlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlertError.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				441C0E832A7D9EA2003B83FA /* Chat.swift */,
+				44D593202A88198E001C9D02 /* ChatMock.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				4490255C2A519730003C79ED /* ChatViewModel.swift in Sources */,
 				449025532A5192FF003C79ED /* ChatBubbleView.swift in Sources */,
 				449025552A51943E003C79ED /* OptionalString.swift in Sources */,
+				44D593212A88198E001C9D02 /* ChatMock.swift in Sources */,
 				4412FEB62A507269007DEA72 /* ChatDayView.swift in Sources */,
 				4412FEB12A5071D9007DEA72 /* ChatHeaderView.swift in Sources */,
 				446D3DE22A58860000A21255 /* ScaleFadeAnimationModifier.swift in Sources */,

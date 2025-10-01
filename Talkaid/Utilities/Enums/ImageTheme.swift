@@ -6,7 +6,7 @@ enum ImageTheme {
   var image: Image {
     switch self {
     case .chatAssistant:
-      return Image("ChatAssistant")
+      return Image(systemName: "person.wave.2")
     }
   }
 }

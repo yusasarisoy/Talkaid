@@ -1,14 +1,4 @@
-<div align="center">
-  <img width="100" height="100" alt="Talkaid" src="https://i.ibb.co/JsChVJ7/talkaid.png">
-  </br>
-  <h1><b>Talkaid</b></h1>
-</div>
-
-<div align="center">
-
-![](https://img.shields.io/badge/Editor-Xcode-informational?style=flat&logo=xcode&logoColor=white&color=8FBEC9) ![](https://img.shields.io/badge/Language-Swift-informational?style=flat&logo=swift&logoColor=white&color=8FBEC9) ![](https://img.shields.io/badge/UI%20Framework-SwiftUI-informational?style=flat&logo=swift&logoColor=white&color=8FBEC9)
-
-</div>
+# Talkaid
 
 Talkaid is an interactive messaging iOS app that allows users to engage in conversations with an AI assistant. Users have the option to interact with the AI assistant through text input via the keyboard or by sending voice messages, facilitating seamless communication.
 

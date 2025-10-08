@@ -41,7 +41,7 @@ Talkaid is an interactive messaging iOS app that allows users to engage in conve
 - The app uses networking capabilities to fetch data from OpenAI API using [URLSession](https://developer.apple.com/documentation/foundation/urlsession).
 - The requests from the user and the responses from the chat assistant are loaded asynchronously with the help of async/await.
 - [SwiftLint](https://github.com/realm/SwiftLint) has used to enforce Swift style and conventions and keeping the codebase consistent.
-- The **Network** layer handles communication with the data sources. It serves as an intermediary between the data consumer and the data sources, shielding the consumer from dealing with the intricacies of manipulating the data. This layer provides flexibility in changing data sources without impacting other components.
+- [CoreSession](https://github.com/yusasarisoy/CoreSession) is used for handling communication with the data sources.
 
 ## Features
 

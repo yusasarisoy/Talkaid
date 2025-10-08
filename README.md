@@ -1,4 +1,7 @@
-# Talkaid
+<p align="center">
+ <img src="Talkaid/Resources/talkaid.png" alt="Talkaid logo" width="150">
+  <h1 align="center">Talkaid</h1>
+</p>
 
 Talkaid is an interactive messaging iOS app that allows users to engage in conversations with an AI assistant. Users have the option to interact with the AI assistant through text input via the keyboard or by sending voice messages, facilitating seamless communication.
 

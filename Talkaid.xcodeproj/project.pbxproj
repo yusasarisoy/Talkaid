@@ -36,7 +36,6 @@
 		44AD1C022E965A8A0011C27F /* CoreSession in Frameworks */ = {isa = PBXBuildFile; productRef = 44AD1C012E965A8A0011C27F /* CoreSession */; };
 		44B223702A50187300A52640 /* TalkaidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B2236F2A50187300A52640 /* TalkaidApp.swift */; };
 		44B223722A50187300A52640 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B223712A50187300A52640 /* ContentView.swift */; };
-		44B223742A50187400A52640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223732A50187400A52640 /* Assets.xcassets */; };
 		44B223772A50187400A52640 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B223762A50187400A52640 /* Preview Assets.xcassets */; };
 		44B2237F2A501D8200A52640 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 44B2237E2A501D8200A52640 /* .swiftlint.yml */; };
 		44DEB4AA2A549D5500239F6A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEB4A92A549D5500239F6A /* Error.swift */; };
@@ -87,7 +86,6 @@
 		44B2236C2A50187300A52640 /* Talkaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talkaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B2236F2A50187300A52640 /* TalkaidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkaidApp.swift; sourceTree = "<group>"; };
 		44B223712A50187300A52640 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		44B223732A50187400A52640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B223762A50187400A52640 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44B2237E2A501D8200A52640 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		44DC46FB2A54A3B30066EB6C /* Talkaid.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Talkaid.xctestplan; sourceTree = "<group>"; };
@@ -97,6 +95,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		44253E7F2E9671350075D8CA /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
 		4426CED22E96666800C56E5F /* Service */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Service; sourceTree = "<group>"; };
 		44AD1B772E9659FC0011C27F /* Domain */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Domain; sourceTree = "<group>"; };
 		44AD1BFB2E965A530011C27F /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
@@ -302,9 +301,9 @@
 				4412FEA32A5070D1007DEA72 /* Info.plist */,
 				44B223712A50187300A52640 /* ContentView.swift */,
 				44B2236F2A50187300A52640 /* TalkaidApp.swift */,
-				44B223732A50187400A52640 /* Assets.xcassets */,
 				4412FEA92A50718E007DEA72 /* Modules */,
 				44B223752A50187400A52640 /* Preview Content */,
+				44253E7F2E9671350075D8CA /* Resources */,
 				44B2237D2A501D7100A52640 /* Supporting Files */,
 				4412FE852A506436007DEA72 /* Utilities */,
 				444204DC2A56091400DD381F /* Voice Input Recognition */,
@@ -367,6 +366,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				44253E7F2E9671350075D8CA /* Resources */,
 				44AD1B772E9659FC0011C27F /* Domain */,
 				44AD1BFB2E965A530011C27F /* Data */,
 			);
@@ -431,7 +431,6 @@
 			files = (
 				44B2237F2A501D8200A52640 /* .swiftlint.yml in Resources */,
 				44B223772A50187400A52640 /* Preview Assets.xcassets in Resources */,
-				44B223742A50187400A52640 /* Assets.xcassets in Resources */,
 				44A623D22A76EB9100C2165A /* ChatMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

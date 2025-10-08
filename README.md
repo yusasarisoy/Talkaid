@@ -17,8 +17,8 @@ Talkaid is an interactive messaging iOS app that allows users to engage in conve
 
 ## Prerequisites
 
-- iOS device or simulator running iOS 15.0 or later.
-- Xcode 13.0 or later.
+- iOS device or simulator running iOS 17.6 or later.
+- Xcode 15.4 or later.
 
 ## Installation
 

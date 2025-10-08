@@ -29,10 +29,11 @@ struct ChatHeaderView: View {
       }
       VStack(alignment: .leading, spacing: 4) {
         Text(greetUser.title.orEmpty)
-          .font(.custom(FontTheme.sfProDisplay, size: 20).weight(.heavy))
+          .font(.title3)
+          .bold()
           .foregroundColor(ColorTheme.accentColor.color)
         Text(greetUser.description.orEmpty)
-          .font(.custom(FontTheme.sfProText, size: 15))
+          .font(.subheadline)
           .foregroundColor(ColorTheme.echoBlue.color)
       }
     }

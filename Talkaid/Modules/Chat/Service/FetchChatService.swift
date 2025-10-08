@@ -1,3 +1,5 @@
+import CoreSession
+
 // MARK: - FetchChatService
 
 struct FetchChatService {
@@ -16,10 +18,14 @@ struct FetchChatService {
 // MARK: - ChatFetcher
 
 extension FetchChatService: ChatFetcher {
+  func greetUser() async throws -> GreetUser {
+    .init(title: .empty, description: .empty)
+  }
+  
   func fetchCompletions(prompt: String) async -> Chat? {
     let requestData = ChatRequest.fetchCompletions(prompt: prompt)
     do {
-      let cats: Chat = try await requestManager.perform(requestData)
+      let cats: Chat = try await requestManager.makeRequest(requestData)
       return cats
     } catch {
       print(error.localizedDescription)

@@ -1,3 +1,5 @@
+import CoreSession
+
 // MARK: - ChatRequest
 
 enum ChatRequest {
@@ -7,6 +9,8 @@ enum ChatRequest {
 // MARK: - RequestProtocol
 
 extension ChatRequest: RequestProtocol {
+  typealias Response = Chat
+
   var path: String {
     "/v1/completions"
   }
@@ -15,7 +19,7 @@ extension ChatRequest: RequestProtocol {
     switch self {
     case let .fetchCompletions(prompt):
       return [
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-5",
         "messages": [
           [
             "role": "user",

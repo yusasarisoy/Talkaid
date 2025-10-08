@@ -46,7 +46,7 @@ struct ChatView: View {
     }
     .task {
       do {
-        try await viewModel.greetTheUser()
+        await viewModel.greetTheUser()
         try await voiceInputRecognizer.checkAnyErrorForSpeechRecognizer()
       } catch {
         viewModel.errorType = .unableToConnectToChatAssistant

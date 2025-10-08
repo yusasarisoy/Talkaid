@@ -31,7 +31,7 @@ struct ChatBubbleView: View {
         Spacer()
       }
       Text(message.content.orEmpty)
-        .font(.custom(FontTheme.sfProText, size: 17))
+        .font(.body)
         .padding(16)
         .foregroundColor(sentByUser ? .white : .black)
         .background(sentByUser ? ColorTheme.azure.color : ColorTheme.aliceBlue.color)

@@ -7,19 +7,19 @@ final class ChatViewModelTests: XCTestCase {
   // MARK: - Properties
 
   private var sut: ChatViewModel!
-  private var chatAPIManager: MockChatAPIManager!
+  private var chatFetcher: ChatFetcherMock!
 
   // MARK: - Override Methods
 
   override func setUp() {
     super.setUp()
-    chatAPIManager = MockChatAPIManager()
-    sut = ChatViewModel(chatAPIManager: chatAPIManager)
+    chatFetcher = ChatFetcherMock()
+    sut = ChatViewModel(chatFetcher: chatFetcher)
   }
 
   override func tearDown() {
     sut = nil
-    chatAPIManager = nil
+    chatFetcher = nil
     super.tearDown()
   }
 
@@ -69,21 +69,19 @@ final class ChatViewModelTests: XCTestCase {
     XCTAssertEqual(sut.chatMessages.last, chatAssistantMessage)
     XCTAssertEqual(sut.inputText, .empty)
   }
-
+  
   func testGreetTheUser() async throws {
-    // Given
-    let expectedGreetUser = GreetUser(
+    let expected = GreetUser(
       title: "Good morning, Samantha",
       description: "How can I help you today?"
     )
-
-    // When
-    try await sut.greetTheUser()
-    chatAPIManager.greetUserReturnValue = expectedGreetUser
-
-    // Then
-    XCTAssertEqual(sut.greetUser, expectedGreetUser)
+    chatFetcher.greetUserReturnValue = expected
+    
+    await sut.greetTheUser()
+    
+    XCTAssertEqual(sut.greetUser, expected)
     XCTAssertFalse(sut.isLoading)
+    XCTAssertTrue(chatFetcher.greetUserCalled)
   }
 
   func testSendMessageWithValidMessage() async throws {
@@ -111,7 +109,7 @@ final class ChatViewModelTests: XCTestCase {
 
     // Then
     XCTAssertEqual(sut.inputText, .empty)
-    XCTAssertTrue(sut.isLoading)
+    XCTAssertFalse(sut.isLoading)
     XCTAssertEqual(sut.chatMessages.count, .zero)
     XCTAssertEqual(sut.errorType, .emptyMessage)
   }

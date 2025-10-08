@@ -4,6 +4,7 @@ import Combine
 
 protocol ChatFetcher {
   func fetchCompletions(prompt: String) async -> Chat?
+  func greetUser() async throws -> GreetUser
 }
 
 @MainActor
@@ -27,20 +28,24 @@ final class ChatViewModel: ObservableObject {
   }
 }
 
-// MARK: - Internal Helper Methods
+// MARK: - Helper Methods
 
 extension ChatViewModel {
-  func greetTheUser() async throws {
+  func greetTheUser() async {
     isLoading = true
-    let chatAssistantMessage = await chatFetcher.fetchCompletions(prompt: "Hello Chat GPT")
-    greetUser = .init(title: "Hello!", description: chatAssistantMessage?.choices?.first?.message?.content.orEmpty)
-    isLoading = false
+    defer { isLoading = false }
+    do {
+      greetUser = try await chatFetcher.greetUser()
+    } catch {
+      greetUser = GreetUser(title: "Hello!", description: nil)
+    }
   }
-
+  
   func sendMessage(_ message: ChatBubble) async throws {
     inputText = .empty
     guard message.content.isTextContainsCharacter else {
       errorType = .emptyMessage
+      isLoading = false
       return
     }
     isLoading = true

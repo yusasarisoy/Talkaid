@@ -24,6 +24,7 @@ final class VoiceInputRecognizer: ObservableObject {
 
   init(recognizer: SFSpeechRecognizer? = SFSpeechRecognizer()) {
     self.recognizer = recognizer
+    configureAudioSession()
   }
 
   // MARK: - Deinitialization
@@ -62,40 +63,38 @@ extension VoiceInputRecognizer {
       speak(VoiceInputRecognizerError.recognizerIsUnavailable.localizedDescription)
       return
     }
-
-    do {
-      let ((audioRecorder, audioEngine), request) = try prepareAudioEngine()
-      self.audioRecorder = audioRecorder
-      self.audioEngine = audioEngine
-      self.request = request
-      setUpAudioCapture()
-
-      // Executes the speech recognition request and deliver the result.
-      task = recognizer.recognitionTask(with: request) { [weak self] result, error in
-        guard let self, let result else {
-          let receivedFinalResult = (result?.isFinal).orFalse
-          let receivedError = error != nil
-          self?.averagePower = .zero
-          guard !receivedFinalResult, !receivedError else { return }
-          audioEngine.stop()
-          audioEngine.inputNode.removeTap(onBus: .zero)
-          return
-        }
-
-        // Get the average power in decibels.
-        self.timer = .scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] _ in
+    
+    Task {
+      do {
+        try await checkAnyErrorForSpeechRecognizer()
+        configureAudioSession()
+        let ((audioRecorder, audioEngine), request) = try prepareAudioEngine()
+        self.audioRecorder = audioRecorder
+        self.audioEngine = audioEngine
+        self.request = request
+        
+        task = recognizer.recognitionTask(with: request) { [weak self] result, error in
           guard let self else { return }
-          self.audioRecorder?.updateMeters()
-          let averagePower = audioRecorder?.averagePower(forChannel: .zero) ?? .zero
-          let difference = 160 + CGFloat(averagePower)
-          self.averagePower = difference
+          guard let result else {
+            self.averagePower = .zero
+            audioEngine.stop()
+            audioEngine.inputNode.removeTap(onBus: .zero)
+            return
+          }
+          
+          self.timer = .scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] _ in
+            guard let self else { return }
+            self.audioRecorder?.updateMeters()
+            let avg = self.audioRecorder?.averagePower(forChannel: .zero) ?? .zero
+            self.averagePower = 160 + CGFloat(avg)
+          }
+          
+          self.speak(result.bestTranscription.formattedString)
         }
-
-        self.speak(result.bestTranscription.formattedString)
+      } catch {
+        resetVoiceInputRecognizer()
+        speak(error.localizedDescription)
       }
-    } catch {
-      resetVoiceInputRecognizer()
-      speak(error.localizedDescription)
     }
   }
 
@@ -107,14 +106,13 @@ extension VoiceInputRecognizer {
 // MARK: - Private Helper Methods
 
 extension VoiceInputRecognizer {
-  private func setUpAudioCapture() {
-    let recordingSession = AVAudioSession.sharedInstance()
-
+  private func configureAudioSession() {
     do {
-      try recordingSession.setCategory(.record)
-      try recordingSession.setActive(true)
-      try recordingSession.setMode(.measurement)
-
+      let session = AVAudioSession.sharedInstance()
+      try session.setCategory(.record, mode: .measurement, options: [.duckOthers])
+      try? session.setPreferredSampleRate(44_100)
+      try? session.setPreferredInputNumberOfChannels(1)
+      try session.setActive(true, options: .notifyOthersOnDeactivation)
     } catch {
       speak(error.localizedDescription)
     }
@@ -154,11 +152,25 @@ extension VoiceInputRecognizer {
 
   private func resetVoiceInputRecognizer() {
     task?.cancel()
-    audioEngine?.stop()
-    audioEngine = .none
-    request = .none
-    task = .none
+    task = nil
+    
+    audioRecorder?.stop()
+    audioRecorder = nil
+    
+    if let engine = audioEngine {
+      engine.inputNode.removeTap(onBus: .zero)
+      engine.stop()
+    }
+
+    audioEngine = nil
+    
+    request?.endAudio()
+    request = nil
+    
     timer?.invalidate()
+    timer = nil
+    
+    try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
   }
 
   private func prepareAudioEngine() throws -> (
@@ -166,29 +178,22 @@ extension VoiceInputRecognizer {
     SFSpeechAudioBufferRecognitionRequest
   ) {
     let audioEngine = AVAudioEngine()
-
     let request = SFSpeechAudioBufferRecognitionRequest()
+    request.shouldReportPartialResults = true
+    
     let inputNode = audioEngine.inputNode
-
-    // This gives us access to the audio data on the inputNode's output bus.
-    // We request a buffer size of 1024 bytes, but the requested size isn’t guaranteed,
-    // especially if we request a buffer that’s too small or large.
-    // Apple’s documentation doesn’t specify what those limits are.
-    let recordingFormat = inputNode.outputFormat(forBus: .zero)
-    inputNode.installTap(
-      onBus: .zero,
-      bufferSize: 1024,
-      format: recordingFormat
-    ) { buffer, _ in
+    inputNode.removeTap(onBus: 0)
+    
+    inputNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { buffer, _ in
       request.append(buffer)
     }
-
+    
     audioEngine.prepare()
     try audioEngine.start()
-
+    
     return ((captureAudio(), audioEngine), request)
   }
-
+  
   private func speak(_ message: String) {
     Task { @MainActor in
       transcript = message

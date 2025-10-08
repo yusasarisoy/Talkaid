@@ -65,7 +65,8 @@ private extension ChatInputView {
         sendTheMessage()
       }
       .focused($inputFieldIsFocused)
-      .font(.custom(FontTheme.sfProText, size: 17).weight(.bold))
+      .font(.headline)
+      .bold()
       .autocorrectionDisabled(true)
       .foregroundColor(ColorTheme.micColor.color)
       .overlay(
@@ -124,12 +125,12 @@ private extension ChatInputView {
             .frame(size: min(geometry.size.height, max(0, averagePowerLimit) + 147))
             .cornerRadius(min(geometry.size.height, max(0, averagePowerLimit) + 147))
           Text("🎤 Tap to stop recording")
-            .font(.custom(FontTheme.sfProText, size: 17))
+            .font(.headline)
             .foregroundColor(.white)
           VStack {
             HStack {
               Text(voiceInputRecordingTime, style: .timer)
-                .font(.custom(FontTheme.sfProText, size: 17))
+                .font(.headline)
                 .foregroundColor(.white)
                 .padding([.leading, .top], 16)
               Spacer()

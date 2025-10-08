@@ -1,0 +1,15 @@
+{
+  "originHash" : "f16dcda3607ce353906149ab8e2fecb91b1e94557ee0e382fc7b02df27b04fd9",
+  "pins" : [
+    {
+      "identity" : "coresession",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yusasarisoy/CoreSession",
+      "state" : {
+        "branch" : "main",
+        "revision" : "117a4948fb293683ea48261771d353bd8dbe1dbd"
+      }
+    }
+  ],
+  "version" : 3
+}

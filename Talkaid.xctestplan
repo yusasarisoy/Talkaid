@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "17AA3754-3F42-4E2B-A645-DF23D4284C8D",
+      "id" : "AA0911B0-52E9-4B4D-AFE4-A0195CD5C7CC",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -9,6 +9,8 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : false,
+    "performanceAntipatternCheckerEnabled" : true,
     "targetForVariableExpansion" : {
       "containerPath" : "container:Talkaid.xcodeproj",
       "identifier" : "44B2236B2A50187300A52640",
@@ -17,7 +19,6 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:Talkaid.xcodeproj",
         "identifier" : "44683E962A5494C000EBB668",
